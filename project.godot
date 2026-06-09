@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="ROOM"
+config/name="Rat in the Room"
+config/tags=PackedStringArray("active")
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*uid://pxfvm178mtfj"
 
 [file_customization]
 
@@ -24,6 +29,14 @@ folder_colors={
 "res://Assets/Scripts/": "teal",
 "res://Assets/Sprites/": "blue",
 "res://Assets/Translation/": "purple"
+}
+
+[input]
+
+pickup={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
 }
 
 [physics]

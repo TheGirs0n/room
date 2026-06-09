@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b55uxsm51tmrj"]
+
+[ext_resource type="Script" uid="uid://4gx138bhpnvc" path="res://Assets/Scripts/Room/Room.gd" id="1_10bim"]
+
+[node name="Room" type="Sprite2D" unique_id=738098307]
+script = ExtResource("1_10bim")
+
+[node name="Label" type="Label" parent="." unique_id=560755868]
+offset_right = 40.0
+offset_bottom = 23.0
