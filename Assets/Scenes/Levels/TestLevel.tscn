@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://5jhujotm5pmx"]
+
+[ext_resource type="PackedScene" uid="uid://b55uxsm51tmrj" path="res://Assets/Scenes/Room/Room.tscn" id="1_3i3hp"]
+[ext_resource type="Script" uid="uid://k60kdd83nqtv" path="res://Assets/Scripts/Level/LevelScript.gd" id="1_iw5u7"]
+[ext_resource type="PackedScene" uid="uid://cqvv04cdf20sy" path="res://Assets/Scenes/Cheese/Cheese.tscn" id="2_nyyhf"]
+[ext_resource type="PackedScene" uid="uid://4hv62yenxs1v" path="res://Assets/Scenes/Room/RoomManager.tscn" id="3_iw5u7"]
+[ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="3_nyyhf"]
+
+[node name="TestLevel" type="Node2D" unique_id=1046303588 node_paths=PackedStringArray("base_room", "mouse_main")]
+script = ExtResource("1_iw5u7")
+base_room = NodePath("Room")
+mouse_main = NodePath("Mouse")
+
+[node name="Room" parent="." unique_id=738098307 node_paths=PackedStringArray("cheese_array", "room_linked_array") instance=ExtResource("1_3i3hp")]
+position = Vector2(342, 283)
+room_id = 1
+cheese_array = [NodePath("Cheese"), NodePath("Cheese2"), NodePath("Cheese3")]
+room_linked_array = [NodePath("../Room2")]
+
+[node name="Cheese" parent="Room" unique_id=1578309279 instance=ExtResource("2_nyyhf")]
+
+[node name="Cheese2" parent="Room" unique_id=1276971869 instance=ExtResource("2_nyyhf")]
+position = Vector2(32, -27)
+
+[node name="Cheese3" parent="Room" unique_id=1554823940 instance=ExtResource("2_nyyhf")]
+position = Vector2(-10, -8)
+
+[node name="Room2" parent="." unique_id=1717950448 node_paths=PackedStringArray("cheese_array", "room_linked_array") instance=ExtResource("1_3i3hp")]
+position = Vector2(597, 287)
+room_id = 2
+cheese_array = [NodePath("Cheese"), NodePath("Cheese2")]
+room_linked_array = [NodePath("../Room")]
+
+[node name="Cheese" parent="Room2" unique_id=1203774475 instance=ExtResource("2_nyyhf")]
+position = Vector2(31, -27)
+
+[node name="Cheese2" parent="Room2" unique_id=1905598161 instance=ExtResource("2_nyyhf")]
+position = Vector2(-27, -26)
+
+[node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("3_nyyhf")]
+position = Vector2(217, 277)
+
+[node name="RoomManager" parent="." unique_id=1992842305 node_paths=PackedStringArray("rooms_in_level") instance=ExtResource("3_iw5u7")]
+rooms_in_level = [NodePath("../Room"), NodePath("../Room2")]

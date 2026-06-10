@@ -1,10 +1,32 @@
 [gd_scene format=3 uid="uid://b55uxsm51tmrj"]
 
 [ext_resource type="Script" uid="uid://4gx138bhpnvc" path="res://Assets/Scripts/Room/Room.gd" id="1_10bim"]
+[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="1_o888g"]
 
-[node name="Room" type="Sprite2D" unique_id=738098307]
+[node name="Room" type="Sprite2D" unique_id=738098307 node_paths=PackedStringArray("room_id_label", "color_rect_spot")]
+texture = ExtResource("1_o888g")
 script = ExtResource("1_10bim")
+room_id_label = NodePath("Label")
+color_rect_spot = NodePath("ColorSpot")
 
 [node name="Label" type="Label" parent="." unique_id=560755868]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -17.0
+offset_top = 74.0
+offset_right = 23.0
+offset_bottom = 97.0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorSpot" type="ColorRect" parent="." unique_id=1341791765]
+modulate = Color(1, 0.3, 0.3, 0)
+clip_contents = true
+custom_minimum_size = Vector2(127.295, 125.99)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 63.295
+offset_bottom = 61.989998
+size_flags_horizontal = 3
+size_flags_vertical = 3

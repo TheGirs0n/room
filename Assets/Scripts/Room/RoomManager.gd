@@ -9,8 +9,12 @@ func _ready() -> void:
 	
 
 func show_all_in_the_room(new_room : int):
-	rooms_in_level[new_room].show_all_in_the_room()
+	for room in rooms_in_level:
+		if room.room_id == new_room:
+			room.show_all_in_the_room()
 
 
 func hide_all_in_the_room(old_room : int):
-	rooms_in_level[old_room].hide_all_in_the_room()
+	for room in rooms_in_level:
+		if room.room_id == old_room:
+			room.hide_all_in_the_room()

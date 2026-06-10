@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://crjavyujjtwag"]
 
 [ext_resource type="Script" uid="uid://dhvusqo1llst4" path="res://Assets/Scripts/Mouse/Mouse.gd" id="1_41cst"]
+[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="1_rxdl7"]
 [ext_resource type="Script" uid="uid://dbqlxtjx64pt8" path="res://Assets/Scripts/Mouse/MouseMoveComponent.gd" id="2_24kqb"]
 [ext_resource type="Script" uid="uid://3ppw77glhi14" path="res://Assets/Scripts/Mouse/MousePickupComponent.gd" id="3_rxdl7"]
 
-[node name="Mouse" type="Sprite2D" unique_id=1253555285]
-visible = false
+[node name="Mouse" type="Sprite2D" unique_id=1253555285 node_paths=PackedStringArray("mouse_move_component", "mouse_pickup_component")]
+modulate = Color(0.33260515, 0.33260515, 0.33260515, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rxdl7")
 script = ExtResource("1_41cst")
+mouse_move_component = NodePath("MouseMoveComponent")
+mouse_pickup_component = NodePath("MousePickupComponent")
 
 [node name="MouseMoveComponent" type="Node" parent="." unique_id=1536524929]
 script = ExtResource("2_24kqb")
 
-[node name="MousePickupComponent" type="Node" parent="." unique_id=1921685706]
+[node name="MousePickupComponent" type="Node" parent="." unique_id=1921685706 node_paths=PackedStringArray("cheese_sprite")]
 script = ExtResource("3_rxdl7")
+cheese_sprite = NodePath("CheeseSprite")
 
 [node name="CheeseSprite" type="Sprite2D" parent="MousePickupComponent" unique_id=239265543]

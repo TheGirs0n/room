@@ -15,23 +15,27 @@ func setup(mouse : MouseMain):
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		var key = OS.get_keycode_string(event.keycode).to_lower()[-1]
-		move_another_room(key)
+		if event.is_pressed():
+			var key = OS.get_keycode_string(event.keycode).to_lower()[-1] as int
+			move_another_room(key)
 	
 # движение к другой комнате
 func move_another_room(next_room_id : int):
 	if !mouse_is_moving:
-		if next_room_id in current_room.room_linked_array:
+		if current_room.get_linked_room_by_id(next_room_id) != null:
 			mouse_is_moving = true
 			EventBus.mouse_leave_old_room.emit(current_room.room_id)
 			current_room = current_room.get_linked_room_by_id(next_room_id)
+			
+			if movement_tween:
+				movement_tween.kill()
 			
 			movement_tween = create_tween()
 			movement_tween.set_ease(Tween.EASE_IN_OUT)
 			movement_tween.set_trans(Tween.TRANS_CUBIC)
 			movement_tween.tween_property(mouse_main, "global_position", current_room.global_position, 1)
 			movement_tween.finished.connect(movement_tween_end)
-
+			
 	
 func movement_tween_end():
 	EventBus.mouse_enter_new_room.emit(current_room.room_id)

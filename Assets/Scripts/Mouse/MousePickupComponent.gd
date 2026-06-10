@@ -14,9 +14,10 @@ func setup(mouse : MouseMain):
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventAction:
-		if event.action == "pickup" and event.is_pressed():
-			try_to_pickup_in_the_room()
+	if mouse_main.mouse_move_component.mouse_is_moving:
+		return
+	if event is InputEventAction and InputMap.event_is_action(event, "pickup") and event.is_pressed():
+		try_to_pickup_in_the_room()
 
 
 func try_to_pickup_in_the_room():
@@ -31,6 +32,9 @@ func try_to_pickup_in_the_room():
 func mouse_pickup_cheese():
 	is_mouse_full = true
 	
+	if visible_cheese_tween:
+		visible_cheese_tween.kill()
+	
 	visible_cheese_tween = create_tween()
 	visible_cheese_tween.set_ease(Tween.EASE_OUT_IN)
 	visible_cheese_tween.set_trans(Tween.TRANS_LINEAR)
@@ -40,6 +44,9 @@ func mouse_pickup_cheese():
 
 func mouse_drop_cheese():
 	is_mouse_full = false
+	
+	if visible_cheese_tween:
+		visible_cheese_tween.kill()
 	
 	visible_cheese_tween = create_tween()
 	visible_cheese_tween.set_ease(Tween.EASE_OUT_IN)
