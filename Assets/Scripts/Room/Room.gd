@@ -4,7 +4,7 @@ class_name Room
 @export_group("Room Settings")
 @export var room_id : int
 @export var is_escape_room : bool = false
-@export var is_spot_by_cat : bool = false
+
 @export var cheese_array : Array[Cheese]
 @export var room_linked_array : Array[Room]
 
@@ -17,6 +17,9 @@ var hide_items_tween : Tween
 
 var visible_spot_tween : Tween
 var hide_spot_tween : Tween
+
+var is_spot_by_cat : bool = false
+var is_block_by_cat : bool = false
 
 
 func _ready() -> void:
@@ -80,6 +83,13 @@ func cat_stop_spot():
 	hide_spot_tween.set_trans(Tween.TRANS_LINEAR)
 	hide_spot_tween.tween_property(color_rect_spot, "modulate:a", 0.0, 0.5)
 	is_spot_by_cat = false
+
+
+func get_open_room_by_id(id : int):
+	for room in room_linked_array:
+		if room.room_id == id and !room.is_block_by_cat:
+			return room
+	return null
 
 
 func get_linked_room_by_id(id: int) -> Room:

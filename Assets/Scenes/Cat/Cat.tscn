@@ -17,19 +17,25 @@ rest_timer = NodePath("RestTimer")
 rest_timer_waittime = 4.0
 
 [node name="SeekTimer" type="Timer" parent="CatSeekEyeComponent" unique_id=151681504]
+one_shot = true
 
 [node name="RestTimer" type="Timer" parent="CatSeekEyeComponent" unique_id=1270924734]
+one_shot = true
 
-[node name="CatPutPawComponent" type="Node" parent="." unique_id=708871863 node_paths=PackedStringArray("seek_timer", "rest_timer")]
+[node name="CatPutPawComponent" type="Node" parent="." unique_id=708871863 node_paths=PackedStringArray("paw_timer", "rest_timer")]
 script = ExtResource("3_eog7f")
-seek_timer = NodePath("SeekTimer")
-seek_timer_waittime = 2.0
+paw_timer = NodePath("PawTimer")
+paw_timer_waittime = 3.0
 rest_timer = NodePath("RestTimer")
 rest_timer_waittime = 5.0
 
-[node name="SeekTimer" type="Timer" parent="CatPutPawComponent" unique_id=278694235]
+[node name="PawTimer" type="Timer" parent="CatPutPawComponent" unique_id=278694235]
+one_shot = true
 
 [node name="RestTimer" type="Timer" parent="CatPutPawComponent" unique_id=1130239086]
+one_shot = true
 
 [connection signal="timeout" from="CatSeekEyeComponent/SeekTimer" to="CatSeekEyeComponent" method="seek_over"]
 [connection signal="timeout" from="CatSeekEyeComponent/RestTimer" to="CatSeekEyeComponent" method="rest_over"]
+[connection signal="timeout" from="CatPutPawComponent/PawTimer" to="CatPutPawComponent" method="rest_paw"]
+[connection signal="timeout" from="CatPutPawComponent/RestTimer" to="CatPutPawComponent" method="put_paw"]

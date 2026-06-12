@@ -23,6 +23,7 @@ func _ready() -> void:
 func setup(room_array : Array[Room]):
 	rooms_array = room_array
 	
+	
 func seek_mouse():
 	seek_timer.start()
 	current_seek_room = rooms_array.pick_random()
@@ -30,7 +31,6 @@ func seek_mouse():
 
 	
 func rest_over():
-	pass
 	seek_mouse()
 	
 	

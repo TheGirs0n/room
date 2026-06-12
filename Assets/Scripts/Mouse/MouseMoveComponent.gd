@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 # движение к другой комнате
 func move_another_room(next_room_id : int):
 	if !mouse_is_moving:
-		if current_room.get_linked_room_by_id(next_room_id) != null:
+		if current_room.get_open_room_by_id(next_room_id) != null:
 			mouse_is_moving = true
 			EventBus.mouse_leave_old_room.emit(current_room.room_id)
 			current_room = current_room.get_linked_room_by_id(next_room_id)
