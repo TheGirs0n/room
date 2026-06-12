@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 class_name MouseMain
 
 @export var mouse_move_component : MouseMoveComponent

@@ -12,6 +12,12 @@ func setup(mouse : MouseMain):
 	mouse_main = mouse
 	mouse_is_moving = false
 	
+	
+func set_start_room(start_room : Room):
+	current_room = start_room
+	mouse_main.global_position = current_room.global_position
+	movement_tween_end()
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -19,7 +25,7 @@ func _input(event: InputEvent) -> void:
 			var key = OS.get_keycode_string(event.keycode).to_lower()[-1] as int
 			move_another_room(key)
 	
-# движение к другой комнате
+	
 func move_another_room(next_room_id : int):
 	if !mouse_is_moving:
 		if current_room.get_open_room_by_id(next_room_id) != null:

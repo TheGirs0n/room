@@ -25,6 +25,14 @@ var is_block_by_cat : bool = false
 func _ready() -> void:
 	room_id_label.modulate.a = 0.0
 	room_id_label.text = str(room_id)
+	add_cheese_child()
+	
+
+func add_cheese_child():
+	for cheese in get_children():
+		if cheese is Cheese:
+			cheese_array.append(cheese)
+			cheese.tree_exiting.connect(func(): cheese_array.erase(cheese))
 	
 # покажет все в комнате
 func show_all_in_the_room():

@@ -6,9 +6,9 @@ class_name LevelBase
 
 
 func _ready() -> void:
-	setup_level()
 	mouse_main.setup_components()
+	setup_level()
 	
 	
 func setup_level():
-	mouse_main.mouse_move_component.current_room = base_room
+	mouse_main.mouse_move_component.set_start_room(base_room)

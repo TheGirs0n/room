@@ -16,17 +16,20 @@ func setup(mouse : MouseMain):
 func _input(event: InputEvent) -> void:
 	if mouse_main.mouse_move_component.mouse_is_moving:
 		return
-	if event is InputEventAction and InputMap.event_is_action(event, "pickup") and event.is_pressed():
+	if event.is_action_pressed("pickup"):
 		try_to_pickup_in_the_room()
 
 
 func try_to_pickup_in_the_room():
 	var current_room = mouse_main.mouse_move_component.current_room
-	if current_room.cheese_array.size() > 0:
-		if !is_mouse_full:
-			var cheese_random = current_room.cheese_array.pop_at(-1)
-			cheese_random.queue_free()
-			mouse_pickup_cheese()
+	if current_room.cheese_array.size() > 0 and !is_mouse_full:
+		var cheese_random = current_room.cheese_array.back()
+		cheese_random.queue_free()
+		print(current_room.cheese_array.size())
+		mouse_pickup_cheese()
+		
+		if current_room.is_escape_room:
+			mouse_drop_cheese()
 
 
 func mouse_pickup_cheese():
