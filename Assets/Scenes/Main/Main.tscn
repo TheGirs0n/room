@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://dmhhh11mjlcgs"]
 
-[node name="Main" type="Node" unique_id=1782819572]
+[ext_resource type="Script" uid="uid://cfvvcbf6pjb24" path="res://Assets/Scripts/Main/Main.gd" id="1_hq6bq"]
+[ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="2_etg6q"]
+[ext_resource type="PackedScene" uid="uid://3pa06r1f4m2x" path="res://Assets/Scenes/Cat/Cat.tscn" id="3_y7ajb"]
+[ext_resource type="PackedScene" uid="uid://5jhujotm5pmx" path="res://Assets/Scenes/Levels/TestLevel.tscn" id="4_00wie"]
+[ext_resource type="PackedScene" uid="uid://crfphrbgxrjls" path="res://Assets/Scenes/UI/MainUI.tscn" id="5_3h6xm"]
+
+[node name="Main" type="Node" unique_id=1782819572 node_paths=PackedStringArray("mouse_main", "cat", "main_ui", "current_level")]
+script = ExtResource("1_hq6bq")
+mouse_main = NodePath("Mouse")
+cat = NodePath("Cat")
+main_ui = NodePath("MainUi")
+current_level = NodePath("TestLevel")
+
+[node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_etg6q")]
+
+[node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_y7ajb")]
+
+[node name="TestLevel" parent="." unique_id=1046303588 instance=ExtResource("4_00wie")]
+
+[node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("5_3h6xm")]

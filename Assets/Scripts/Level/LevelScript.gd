@@ -1,14 +1,10 @@
 extends Node
 class_name LevelBase
 
-@export var base_room : Room
-@export var mouse_main : MouseMain
+@export var room_manager: RoomManager
+@export var cheese_manager: CheeseManager
+@export var base_room: Room
 
 
-func _ready() -> void:
-	mouse_main.setup_components()
-	setup_level()
-	
-	
-func setup_level():
-	mouse_main.mouse_move_component.set_start_room(base_room)
+func get_rooms() -> Array[Room]:
+	return room_manager.rooms_in_level

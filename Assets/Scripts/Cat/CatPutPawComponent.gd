@@ -24,14 +24,19 @@ func setup(room_array : Array[Room]):
 	rooms_array = room_array
 
 
-func put_paw():
+func put_paw() -> void:
 	paw_timer.start()
 	var room = rooms_array.pick_random()
-	var random_linked_room = room.room_linked_array.pick_random()
+	var linked_room = room.room_linked_array.pick_random()
+
+	current_paw_pair_room = [room, linked_room]  
 	
 	room.is_block_by_cat = true
-	random_linked_room.is_block_by_cat = true
-	
+	linked_room.is_block_by_cat = true
 
-func rest_paw():
+
+func rest_paw() -> void:
 	rest_timer.start()
+	for room in current_paw_pair_room:  
+		room.is_block_by_cat = false
+	current_paw_pair_room.clear()
