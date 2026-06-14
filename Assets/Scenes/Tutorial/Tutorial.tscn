@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="3_gqmho"]
 [ext_resource type="PackedScene" uid="uid://crfphrbgxrjls" path="res://Assets/Scenes/UI/MainUI.tscn" id="4_5pj2k"]
 [ext_resource type="PackedScene" uid="uid://c7s5v1ukqla6i" path="res://Assets/Scenes/Tutorial/TutorialLevel.tscn" id="5_jqd4d"]
+[ext_resource type="PackedScene" uid="uid://n88ubntomwuh" path="res://Assets/Scenes/UI/TutorialUi.tscn" id="6_gqmho"]
 
 [node name="Tutorial" type="Node" unique_id=1360127527 node_paths=PackedStringArray("mouse_main", "cat", "main_ui", "current_level")]
 script = ExtResource("1_fvxr7")
@@ -15,8 +16,11 @@ current_level = NodePath("TutorialLevel")
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("2_jqd4d")]
 
-[node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("3_gqmho")]
-
 [node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("4_5pj2k")]
 
+[node name="TutorialUI" parent="." unique_id=1498241961 node_paths=PackedStringArray("cat") instance=ExtResource("6_gqmho")]
+cat = NodePath("../Cat")
+
 [node name="TutorialLevel" parent="." unique_id=1599955961 instance=ExtResource("5_jqd4d")]
+
+[node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("3_gqmho")]

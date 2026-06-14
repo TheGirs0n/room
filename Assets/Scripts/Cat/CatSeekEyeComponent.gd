@@ -37,3 +37,10 @@ func rest_over():
 func seek_over():
 	rest_timer.start()
 	current_seek_room.cat_stop_spot()
+
+
+func enable() -> void:
+	seek_timer.start()   # или paw_timer / rest_timer
+
+func disable() -> void:
+	seek_timer.stop()

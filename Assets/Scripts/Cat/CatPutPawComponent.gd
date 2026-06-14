@@ -40,3 +40,10 @@ func rest_paw() -> void:
 	for room in current_paw_pair_room:  
 		room.is_block_by_cat = false
 	current_paw_pair_room.clear()
+
+
+func enable() -> void:
+	paw_timer.start()   # или paw_timer / rest_timer
+
+func disable() -> void:
+	paw_timer.stop()

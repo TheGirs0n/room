@@ -55,3 +55,4 @@ func mouse_drop_cheese():
 	visible_cheese_tween.set_ease(Tween.EASE_OUT_IN)
 	visible_cheese_tween.set_trans(Tween.TRANS_LINEAR)
 	visible_cheese_tween.tween_property(cheese_sprite, "modulate:a", 0, 0.2)
+	EventBus.mouse_cheese_dropped.emit()

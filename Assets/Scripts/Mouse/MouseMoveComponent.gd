@@ -41,10 +41,17 @@ func move_another_room(next_room_id : int):
 			movement_tween.set_trans(Tween.TRANS_CUBIC)
 			movement_tween.tween_property(mouse_main, "global_position", current_room.global_position, 1)
 			movement_tween.finished.connect(movement_tween_end)
-			
+		else:
+			# комната заблокирована или не существует
+			var target = current_room.get_linked_room_by_id(next_room_id)
+			if target != null and target.is_block_by_cat:
+				EventBus.mouse_blocked_by_cat.emit()
 	
-func movement_tween_end():
+func movement_tween_end() -> void:
 	EventBus.mouse_enter_new_room.emit(current_room.room_id)
+
+	if current_room.is_spot_by_cat:
+		EventBus.mouse_spotted_by_cat.emit()  
 
 	if current_room.is_escape_room:
 		mouse_main.mouse_pickup_component.mouse_drop_cheese()
