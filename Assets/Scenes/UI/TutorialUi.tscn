@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://n88ubntomwuh"]
+
+[ext_resource type="Script" uid="uid://cmcbskjh6y6u1" path="res://Assets/Scripts/Tutorial/TutorialUI.gd" id="1_dnnp8"]
+
+[node name="TutorialUI" type="Control" unique_id=1498241961]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dnnp8")

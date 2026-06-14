@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://k60kdd83nqtv" path="res://Assets/Scripts/Level/LevelScript.gd" id="1_iw5u7"]
 [ext_resource type="PackedScene" uid="uid://cqvv04cdf20sy" path="res://Assets/Scenes/Cheese/Cheese.tscn" id="2_nyyhf"]
 [ext_resource type="PackedScene" uid="uid://4hv62yenxs1v" path="res://Assets/Scenes/Room/RoomManager.tscn" id="3_iw5u7"]
-[ext_resource type="Script" uid="uid://c73e2iyanqmj3" path="res://Assets/Scripts/Cheese/CheeseManager.gd" id="6_o8oqd"]
+[ext_resource type="PackedScene" uid="uid://b11ma71dpmksa" path="res://Assets/Scenes/Cheese/CheeseManager.tscn" id="5_iw5u7"]
 
 [node name="TestLevel" type="Node2D" unique_id=1046303588 node_paths=PackedStringArray("room_manager", "cheese_manager", "base_room")]
 script = ExtResource("1_iw5u7")
@@ -40,6 +40,4 @@ position = Vector2(-27, -26)
 [node name="RoomManager" parent="." unique_id=1992842305 node_paths=PackedStringArray("rooms_in_level") instance=ExtResource("3_iw5u7")]
 rooms_in_level = [NodePath("../Room"), NodePath("../Room2")]
 
-[node name="CheeseManager" type="Node" parent="." unique_id=1161057037]
-script = ExtResource("6_o8oqd")
-metadata/_custom_type_script = "uid://c73e2iyanqmj3"
+[node name="CheeseManager" parent="." unique_id=1399204854 instance=ExtResource("5_iw5u7")]

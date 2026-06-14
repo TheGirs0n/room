@@ -9,6 +9,8 @@ script = ExtResource("1_hipmd")
 cat_seek_eye_component = NodePath("CatSeekEyeComponent")
 cat_put_paw_component = NodePath("CatPutPawComponent")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=362633204]
+
 [node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer")]
 script = ExtResource("2_6sapc")
 seek_timer = NodePath("SeekTimer")
