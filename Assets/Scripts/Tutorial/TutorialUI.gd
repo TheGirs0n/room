@@ -23,7 +23,7 @@ func _ready() -> void:
 	cat.disable_eye()
 	cat.disable_paw()
 
-	EventBus.mouse_enter_new_room.connect(_on_enter_room)
+	EventBus.mouse_leave_old_room.connect(_on_leave_room)
 	EventBus.mouse_cheese_pickup.connect(_on_cheese_pickup)
 	EventBus.mouse_cheese_dropped.connect(_on_cheese_dropped)
 	EventBus.mouse_spotted_by_cat.connect(_on_spotted)
@@ -35,15 +35,15 @@ func _ready() -> void:
 func _show_step(step: Step) -> void:
 	current_step = step
 	hint_label.text = HINTS[step]
-
 	match step:
-		Step.INTRO_EYE:
-			cat.enable_eye()
-		Step.INTRO_PAW:
-			cat.enable_paw()
+		Step.INTRO_EYE: cat.enable_eye()
+		Step.INTRO_PAW: cat.enable_paw()
+		Step.COMPLETE:
+			cat.disable_eye()
+			cat.disable_paw()
 
 
-func _on_enter_room(_room_id: int) -> void:
+func _on_leave_room(_room_id: int) -> void:  # ← переименовать
 	if current_step == Step.MOVE:
 		_show_step(Step.PICKUP)
 
@@ -66,5 +66,3 @@ func _on_spotted() -> void:
 func _on_blocked() -> void:
 	if current_step == Step.INTRO_PAW:
 		_show_step(Step.COMPLETE)
-		cat.disable_eye()
-		cat.disable_paw()

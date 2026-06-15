@@ -16,9 +16,11 @@ func setup_level(level: LevelBase) -> void:
 
 	mouse_main.setup_components()
 	mouse_main.mouse_move_component.set_start_room(level.base_room)
-
+	
 	cat.cat_seek_eye_component.setup(rooms)
+	cat.enable_eye()
 	cat.cat_put_paw_component.setup(rooms)
+	cat.enable_paw()
 
 	for room in rooms:
 		for cheese in room.cheese_array:

@@ -24,10 +24,11 @@ one_shot = true
 [node name="RestTimer" type="Timer" parent="CatSeekEyeComponent" unique_id=1270924734]
 one_shot = true
 
-[node name="CatPutPawComponent" type="Node" parent="." unique_id=708871863 node_paths=PackedStringArray("paw_timer", "rest_timer")]
+[node name="CatPutPawComponent" type="Node" parent="." unique_id=708871863 node_paths=PackedStringArray("paw_timer", "paw_sprite", "rest_timer")]
 script = ExtResource("3_eog7f")
 paw_timer = NodePath("PawTimer")
 paw_timer_waittime = 3.0
+paw_sprite = NodePath("Sprite2D")
 rest_timer = NodePath("RestTimer")
 rest_timer_waittime = 5.0
 
@@ -36,6 +37,8 @@ one_shot = true
 
 [node name="RestTimer" type="Timer" parent="CatPutPawComponent" unique_id=1130239086]
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CatPutPawComponent" unique_id=2013431435]
 
 [connection signal="timeout" from="CatSeekEyeComponent/SeekTimer" to="CatSeekEyeComponent" method="seek_over"]
 [connection signal="timeout" from="CatSeekEyeComponent/RestTimer" to="CatSeekEyeComponent" method="rest_over"]

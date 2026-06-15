@@ -72,8 +72,8 @@ func hide_all_items_in_the_room():
 
 
 func spot_by_cat():
-	if visible_items_tween:
-		visible_items_tween.kill()
+	if visible_spot_tween:
+		visible_spot_tween.kill()
 	
 	visible_spot_tween = create_tween()
 	visible_spot_tween.set_ease(Tween.EASE_IN_OUT)
