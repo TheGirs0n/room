@@ -9,3 +9,7 @@ signal mouse_cheese_dropped
 
 signal mouse_spotted_by_cat
 signal mouse_blocked_by_cat
+
+signal room_spotted(room_id : int)
+signal cheese_delivered
+signal level_completed

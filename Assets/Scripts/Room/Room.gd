@@ -5,7 +5,7 @@ class_name Room
 @export var room_id : int
 @export var is_escape_room : bool = false
 
-@export var cheese_array : Array[Cheese]
+var cheese_array : Array[Cheese]
 @export var room_linked_array : Array[Room]
 
 @export_group("Room UI")
@@ -33,6 +33,8 @@ func add_cheese_child():
 		if cheese is Cheese:
 			cheese_array.append(cheese)
 			cheese.tree_exiting.connect(func(): cheese_array.erase(cheese))
+	for cheese in cheese_array:
+		cheese.modulate.a = 0.0
 	
 # покажет все в комнате
 func show_all_in_the_room():
@@ -80,6 +82,7 @@ func spot_by_cat():
 	visible_spot_tween.set_trans(Tween.TRANS_LINEAR)
 	visible_spot_tween.tween_property(color_rect_spot, "modulate:a", 0.5, 0.5)
 	is_spot_by_cat = true
+	EventBus.room_spotted.emit(room_id)
 
 
 func cat_stop_spot():
@@ -91,13 +94,6 @@ func cat_stop_spot():
 	hide_spot_tween.set_trans(Tween.TRANS_LINEAR)
 	hide_spot_tween.tween_property(color_rect_spot, "modulate:a", 0.0, 0.5)
 	is_spot_by_cat = false
-
-
-func get_open_room_by_id(id : int):
-	for room in room_linked_array:
-		if room.room_id == id and !room.is_block_by_cat:
-			return room
-	return null
 
 
 func get_linked_room_by_id(id: int) -> Room:

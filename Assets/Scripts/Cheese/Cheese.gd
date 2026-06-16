@@ -1,2 +1,2 @@
-extends Node
+extends Sprite2D
 class_name Cheese

@@ -14,7 +14,7 @@ var rooms_array : Array[Room]
 
 func _ready() -> void:
 	seek_timer.stop()
-	rest_timer.stop()  
+	rest_timer.stop()
 	
 	seek_timer.wait_time = seek_timer_waittime
 	rest_timer.wait_time = rest_timer_waittime
@@ -40,12 +40,13 @@ func seek_over():
 
 
 func enable() -> void:
+	disable()
 	rest_timer.start()
-	
+
 
 func disable() -> void:
 	seek_timer.stop()
-	rest_timer.stop()  
+	rest_timer.stop()
 	if current_seek_room:
 		current_seek_room.cat_stop_spot()
 		current_seek_room = null

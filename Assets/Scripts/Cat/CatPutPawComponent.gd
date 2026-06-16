@@ -33,7 +33,7 @@ func put_paw() -> void:
 	var room = rooms_array.pick_random()
 	var linked_room = room.room_linked_array.pick_random()
 
-	current_paw_pair_room = [room, linked_room]  
+	current_paw_pair_room = [room, linked_room]
 	
 	room.is_block_by_cat = true
 	linked_room.is_block_by_cat = true
@@ -42,7 +42,7 @@ func put_paw() -> void:
 
 func rest_paw() -> void:
 	rest_timer.start()
-	for room in current_paw_pair_room:  
+	for room in current_paw_pair_room:
 		room.is_block_by_cat = false
 	current_paw_pair_room.clear()
 	_hide_paw()
@@ -65,7 +65,8 @@ func _hide_paw() -> void:
 
 
 func enable() -> void:
-	rest_timer.start()   # или paw_timer / rest_timer
+	disable()
+	rest_timer.start()
 
 
 func disable() -> void:

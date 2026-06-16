@@ -23,13 +23,12 @@ func _input(event: InputEvent) -> void:
 func try_to_pickup_in_the_room():
 	var current_room = mouse_main.mouse_move_component.current_room
 	if current_room.cheese_array.size() > 0 and !is_mouse_full:
-		var cheese_random = current_room.cheese_array.back()
-		cheese_random.queue_free()
-		print(current_room.cheese_array.size())
+		var cheese = current_room.cheese_array.back()
+		cheese.queue_free()
 		mouse_pickup_cheese()
 		
 		if current_room.is_escape_room:
-			mouse_drop_cheese()
+			mouse_deliver_cheese()
 
 
 func mouse_pickup_cheese():
@@ -56,3 +55,10 @@ func mouse_drop_cheese():
 	visible_cheese_tween.set_trans(Tween.TRANS_LINEAR)
 	visible_cheese_tween.tween_property(cheese_sprite, "modulate:a", 0, 0.2)
 	EventBus.mouse_cheese_dropped.emit()
+
+
+func mouse_deliver_cheese():
+	if not is_mouse_full:
+		return
+	mouse_drop_cheese()
+	EventBus.cheese_delivered.emit()

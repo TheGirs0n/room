@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ypllt5e2fmrq"]
+
+[ext_resource type="Script" uid="uid://c0l08fki4rlft" path="res://Assets/Scripts/UI/ResultScreenUi.gd" id="1_erey7"]
+
+[node name="ResultScreenUi" type="Control" unique_id=1349326732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_erey7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=440242689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6431373)
+
+[node name="VBox" type="VBoxContainer" parent="Background" unique_id=523244057]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Background/VBox" unique_id=583720533]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionButton" type="Button" parent="Background/VBox" unique_id=2128715433]
+layout_mode = 2
