@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://df6epyh1wlp28" path="res://Assets/Scripts/UI/MainUi.gd" id="1_wr53q"]
 [ext_resource type="PackedScene" uid="uid://bmvxve3brkkvn" path="res://Assets/Scenes/UI/CheeseContainerUI.tscn" id="2_jqr7x"]
+[ext_resource type="PackedScene" uid="uid://ypllt5e2fmrq" path="res://Assets/Scenes/UI/ResultScreenUI.tscn" id="3_1yx3r"]
 
-[node name="MainUi" type="CanvasLayer" unique_id=114915362 node_paths=PackedStringArray("cheese_container_ui")]
+[node name="MainUi" type="CanvasLayer" unique_id=114915362 node_paths=PackedStringArray("cheese_container_ui", "result_screen")]
 script = ExtResource("1_wr53q")
 cheese_container_ui = NodePath("CheeseContainer")
+result_screen = NodePath("ResultScreenUi")
 
 [node name="CheeseContainer" parent="." unique_id=1326121264 instance=ExtResource("2_jqr7x")]
+
+[node name="ResultScreenUi" parent="." unique_id=1349326732 instance=ExtResource("3_1yx3r")]
