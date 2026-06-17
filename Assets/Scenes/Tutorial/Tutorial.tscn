@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cj1k1vje8lxq7"]
 
 [ext_resource type="Script" uid="uid://cfvvcbf6pjb24" path="res://Assets/Scripts/Main/Main.gd" id="1_fvxr7"]
+[ext_resource type="PackedScene" uid="uid://dmhhh11mjlcgs" path="res://Assets/Scenes/Main/Level1.tscn" id="2_5pj2k"]
 [ext_resource type="PackedScene" uid="uid://3pa06r1f4m2x" path="res://Assets/Scenes/Cat/Cat.tscn" id="2_jqd4d"]
 [ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="3_gqmho"]
 [ext_resource type="PackedScene" uid="uid://crfphrbgxrjls" path="res://Assets/Scenes/UI/MainUI.tscn" id="4_5pj2k"]
@@ -13,6 +14,8 @@ mouse_main = NodePath("Mouse")
 cat = NodePath("Cat")
 main_ui = NodePath("MainUi")
 current_level = NodePath("TutorialLevel")
+is_tutorial = true
+next_level = ExtResource("2_5pj2k")
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("2_jqd4d")]
 

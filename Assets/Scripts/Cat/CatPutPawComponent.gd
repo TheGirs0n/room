@@ -61,7 +61,7 @@ func _show_paw(room_a: Room, room_b: Room) -> void:
 func _hide_paw() -> void:
 	if paw_tween:
 		paw_tween.kill()
-	paw_sprite.modulate.a = 0.0  # сразу, без анимации
+	paw_sprite.modulate.a = 0.0  
 
 
 func enable() -> void:

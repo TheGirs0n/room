@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0r1ssf1jcudn"]
+
+[ext_resource type="Script" uid="uid://cfvvcbf6pjb24" path="res://Assets/Scripts/Main/Main.gd" id="1_6bd6l"]
+[ext_resource type="PackedScene" uid="uid://7ljah42hlbi2" path="res://Assets/Scenes/Main/Level5.tscn" id="2_adwea"]
+[ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="2_r32wg"]
+[ext_resource type="PackedScene" uid="uid://3pa06r1f4m2x" path="res://Assets/Scenes/Cat/Cat.tscn" id="3_adwea"]
+[ext_resource type="PackedScene" uid="uid://5jhujotm5pmx" path="res://Assets/Scenes/Levels/LevelStruct1.tscn" id="4_85bj0"]
+[ext_resource type="PackedScene" uid="uid://crfphrbgxrjls" path="res://Assets/Scenes/UI/MainUI.tscn" id="5_68hk4"]
+
+[node name="Level4" type="Node" unique_id=1782819572 node_paths=PackedStringArray("mouse_main", "cat", "main_ui", "current_level")]
+script = ExtResource("1_6bd6l")
+mouse_main = NodePath("Mouse")
+cat = NodePath("Cat")
+main_ui = NodePath("MainUi")
+current_level = NodePath("TestLevel")
+next_level = ExtResource("2_adwea")
+
+[node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_r32wg")]
+
+[node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_adwea")]
+
+[node name="TestLevel" parent="." unique_id=1046303588 instance=ExtResource("4_85bj0")]
+
+[node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("5_68hk4")]

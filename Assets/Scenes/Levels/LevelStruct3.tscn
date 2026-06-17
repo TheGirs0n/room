@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dkfx7ar5oktdl"]
+
+[ext_resource type="Script" uid="uid://k60kdd83nqtv" path="res://Assets/Scripts/Level/LevelScript.gd" id="1_3544b"]
+[ext_resource type="PackedScene" uid="uid://b55uxsm51tmrj" path="res://Assets/Scenes/Room/Room.tscn" id="2_ykfl8"]
+[ext_resource type="PackedScene" uid="uid://cqvv04cdf20sy" path="res://Assets/Scenes/Cheese/Cheese.tscn" id="3_ypxfk"]
+[ext_resource type="PackedScene" uid="uid://4hv62yenxs1v" path="res://Assets/Scenes/Room/RoomManager.tscn" id="4_4lw2i"]
+[ext_resource type="PackedScene" uid="uid://b11ma71dpmksa" path="res://Assets/Scenes/Cheese/CheeseManager.tscn" id="5_lw7do"]
+
+[node name="Level3" type="Node2D" unique_id=1046303588 node_paths=PackedStringArray("room_manager", "cheese_manager", "base_room")]
+script = ExtResource("1_3544b")
+room_manager = NodePath("RoomManager")
+cheese_manager = NodePath("CheeseManager")
+base_room = NodePath("Room2")
+
+[node name="Room" parent="." unique_id=738098307 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_ykfl8")]
+position = Vector2(239, 180)
+room_id = 1
+room_linked_array = [NodePath("../Room2"), NodePath("../Room4")]
+
+[node name="Cheese" parent="Room" unique_id=1578309279 instance=ExtResource("3_ypxfk")]
+
+[node name="Cheese2" parent="Room" unique_id=1738435763 instance=ExtResource("3_ypxfk")]
+
+[node name="Cheese3" parent="Room" unique_id=830766403 instance=ExtResource("3_ypxfk")]
+
+[node name="Room2" parent="." unique_id=1226435697 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_ykfl8")]
+position = Vector2(789, 195)
+room_id = 2
+room_linked_array = [NodePath("../Room"), NodePath("../Room3")]
+
+[node name="Room3" parent="." unique_id=3817860 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_ykfl8")]
+position = Vector2(806, 456)
+room_id = 3
+is_escape_room = true
+room_linked_array = [NodePath("../Room2"), NodePath("../Room4")]
+
+[node name="Room4" parent="." unique_id=1126140209 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_ykfl8")]
+position = Vector2(241, 453)
+room_id = 4
+room_linked_array = [NodePath("../Room"), NodePath("../Room3")]
+
+[node name="RoomManager" parent="." unique_id=1992842305 node_paths=PackedStringArray("rooms_in_level") instance=ExtResource("4_4lw2i")]
+rooms_in_level = [NodePath("../Room"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4")]
+
+[node name="CheeseManager" parent="." unique_id=1399204854 instance=ExtResource("5_lw7do")]

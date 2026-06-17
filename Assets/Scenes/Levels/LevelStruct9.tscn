@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c8jvsys33lgdq"]
+
+[ext_resource type="Script" uid="uid://k60kdd83nqtv" path="res://Assets/Scripts/Level/LevelScript.gd" id="1_d5v64"]
+[ext_resource type="PackedScene" uid="uid://b55uxsm51tmrj" path="res://Assets/Scenes/Room/Room.tscn" id="2_1l1pj"]
+[ext_resource type="PackedScene" uid="uid://cqvv04cdf20sy" path="res://Assets/Scenes/Cheese/Cheese.tscn" id="3_ottmt"]
+[ext_resource type="PackedScene" uid="uid://4hv62yenxs1v" path="res://Assets/Scenes/Room/RoomManager.tscn" id="4_cg70l"]
+[ext_resource type="PackedScene" uid="uid://b11ma71dpmksa" path="res://Assets/Scenes/Cheese/CheeseManager.tscn" id="5_umnhh"]
+
+[node name="Level9" type="Node2D" unique_id=1046303588 node_paths=PackedStringArray("room_manager", "cheese_manager", "base_room")]
+script = ExtResource("1_d5v64")
+room_manager = NodePath("RoomManager")
+cheese_manager = NodePath("CheeseManager")
+base_room = NodePath("")
+
+[node name="Room" parent="." unique_id=738098307 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(163, 129)
+room_id = 1
+room_linked_array = [NodePath("../Room2"), NodePath("../Room4")]
+
+[node name="Cheese" parent="Room" unique_id=1578309279 instance=ExtResource("3_ottmt")]
+
+[node name="Room2" parent="." unique_id=664789734 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(504, 127)
+room_id = 2
+room_linked_array = [NodePath("../Room"), NodePath("../Room3"), NodePath("../Room5")]
+
+[node name="Room3" parent="." unique_id=1029092593 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(912, 117)
+room_id = 3
+room_linked_array = [NodePath("../Room2"), NodePath("../Room6")]
+
+[node name="Cheese" parent="Room3" unique_id=1360035753 instance=ExtResource("3_ottmt")]
+
+[node name="Room4" parent="." unique_id=342034058 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(171, 321)
+room_id = 4
+room_linked_array = [NodePath("../Room"), NodePath("../Room5"), NodePath("../Room7")]
+
+[node name="Room5" parent="." unique_id=669831980 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(504, 341)
+room_id = 5
+is_escape_room = true
+room_linked_array = [NodePath("../Room2"), NodePath("../Room4"), NodePath("../Room6"), NodePath("../Room8")]
+
+[node name="Room6" parent="." unique_id=52793772 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(916, 331)
+room_id = 6
+room_linked_array = [NodePath("../Room3"), NodePath("../Room5"), NodePath("../Room9")]
+
+[node name="Cheese" parent="Room6" unique_id=1997079431 instance=ExtResource("3_ottmt")]
+
+[node name="Room7" parent="." unique_id=1380572419 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(177, 522)
+room_id = 7
+room_linked_array = [NodePath("../Room4"), NodePath("../Room8")]
+
+[node name="Cheese" parent="Room7" unique_id=1755953296 instance=ExtResource("3_ottmt")]
+
+[node name="Room8" parent="." unique_id=1517321308 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(515, 538)
+room_id = 8
+room_linked_array = [NodePath("../Room5"), NodePath("../Room7"), NodePath("../Room9")]
+
+[node name="Room9" parent="." unique_id=1362745682 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_1l1pj")]
+position = Vector2(920, 532)
+room_id = 9
+room_linked_array = [NodePath("../Room6"), NodePath("../Room8")]
+
+[node name="Cheese" parent="Room9" unique_id=1754704030 instance=ExtResource("3_ottmt")]
+
+[node name="RoomManager" parent="." unique_id=1992842305 node_paths=PackedStringArray("rooms_in_level") instance=ExtResource("4_cg70l")]
+rooms_in_level = [NodePath("../Room"), NodePath("../Room2"), NodePath("../Room3"), NodePath("../Room4"), NodePath("../Room5"), NodePath("../Room6"), NodePath("../Room7"), NodePath("../Room8"), NodePath("../Room9")]
+
+[node name="CheeseManager" parent="." unique_id=1399204854 instance=ExtResource("5_umnhh")]

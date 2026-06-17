@@ -4,13 +4,12 @@ class_name Room
 @export_group("Room Settings")
 @export var room_id : int
 @export var is_escape_room : bool = false
-
-var cheese_array : Array[Cheese]
 @export var room_linked_array : Array[Room]
 
 @export_group("Room UI")
 @export var room_id_label : Label
 @export var color_rect_spot : ColorRect
+@export var exit_marker : ColorRect
 
 var visible_items_tween : Tween
 var hide_items_tween : Tween
@@ -21,10 +20,12 @@ var hide_spot_tween : Tween
 var is_spot_by_cat : bool = false
 var is_block_by_cat : bool = false
 
+var cheese_array : Array[Cheese]
 
 func _ready() -> void:
 	room_id_label.modulate.a = 0.0
 	room_id_label.text = str(room_id)
+	exit_marker.visible = is_escape_room
 	add_cheese_child()
 	
 
@@ -81,7 +82,7 @@ func spot_by_cat():
 	visible_spot_tween.set_ease(Tween.EASE_IN_OUT)
 	visible_spot_tween.set_trans(Tween.TRANS_LINEAR)
 	visible_spot_tween.tween_property(color_rect_spot, "modulate:a", 0.5, 0.5)
-	is_spot_by_cat = true
+	visible_spot_tween.finished.connect(func(): is_spot_by_cat = true)
 	EventBus.room_spotted.emit(room_id)
 
 
@@ -93,7 +94,7 @@ func cat_stop_spot():
 	hide_spot_tween.set_ease(Tween.EASE_IN_OUT)
 	hide_spot_tween.set_trans(Tween.TRANS_LINEAR)
 	hide_spot_tween.tween_property(color_rect_spot, "modulate:a", 0.0, 0.5)
-	is_spot_by_cat = false
+	hide_spot_tween.finished.connect(func(): is_spot_by_cat = false)
 
 
 func get_linked_room_by_id(id: int) -> Room:
