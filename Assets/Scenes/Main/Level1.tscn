@@ -12,7 +12,7 @@ script = ExtResource("1_hq6bq")
 mouse_main = NodePath("Mouse")
 cat = NodePath("Cat")
 main_ui = NodePath("MainUi")
-current_level = NodePath("")
+current_level = NodePath("Level1")
 next_level = ExtResource("2_qhmj8")
 
 [node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_etg6q")]

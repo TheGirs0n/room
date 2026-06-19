@@ -4,21 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://0r1ssf1jcudn" path="res://Assets/Scenes/Main/Level4.tscn" id="2_68qom"]
 [ext_resource type="PackedScene" uid="uid://crjavyujjtwag" path="res://Assets/Scenes/Mouse/Mouse.tscn" id="2_nkjph"]
 [ext_resource type="PackedScene" uid="uid://3pa06r1f4m2x" path="res://Assets/Scenes/Cat/Cat.tscn" id="3_68qom"]
-[ext_resource type="PackedScene" uid="uid://5jhujotm5pmx" path="res://Assets/Scenes/Levels/LevelStruct1.tscn" id="4_40p5d"]
 [ext_resource type="PackedScene" uid="uid://crfphrbgxrjls" path="res://Assets/Scenes/UI/MainUI.tscn" id="5_0ntnh"]
+[ext_resource type="PackedScene" uid="uid://dkfx7ar5oktdl" path="res://Assets/Scenes/Levels/LevelStruct3.tscn" id="5_nkjph"]
 
 [node name="Level3" type="Node" unique_id=1782819572 node_paths=PackedStringArray("mouse_main", "cat", "main_ui", "current_level")]
 script = ExtResource("1_tuo7p")
 mouse_main = NodePath("Mouse")
 cat = NodePath("Cat")
 main_ui = NodePath("MainUi")
-current_level = NodePath("TestLevel")
+current_level = NodePath("Level3")
 next_level = ExtResource("2_68qom")
 
 [node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_nkjph")]
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_68qom")]
 
-[node name="TestLevel" parent="." unique_id=1046303588 instance=ExtResource("4_40p5d")]
+[node name="Level3" parent="." unique_id=1046303588 instance=ExtResource("5_nkjph")]
 
 [node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("5_0ntnh")]

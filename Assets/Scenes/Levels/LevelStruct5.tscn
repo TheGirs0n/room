@@ -10,7 +10,7 @@
 script = ExtResource("1_a5ttd")
 room_manager = NodePath("RoomManager")
 cheese_manager = NodePath("CheeseManager")
-base_room = NodePath("Room2")
+base_room = NodePath("Room5")
 
 [node name="Room" parent="." unique_id=738098307 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(157, 273)
