@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Rat in the Room"
 config/tags=PackedStringArray("active")
+run/main_scene="uid://bicasqmd5o13m"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

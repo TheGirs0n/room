@@ -10,7 +10,9 @@ class_name MainComponent
 @export var is_tutorial: bool = false
 ## Сцена следующего уровня (переход после победы); пусто = последний уровень
 @export var next_level: PackedScene
+## Финальный экран (показывается после победы на последнем уровне)
 
+@export var win_scene: PackedScene
 enum _Pending { NONE, RETRY, NEXT }
 
 var _level_over: bool = false
@@ -56,15 +58,17 @@ func _on_mouse_caught() -> void:
 	main_ui.result_screen.show_result("Поражение", "Заново")
 
 
-func _on_level_completed() -> void:
-	if _level_over:
-		return
-	_level_over = true
+func _on_level_completed():
 	get_tree().paused = true
 	if next_level:
+		get_tree().paused = true
 		_pending = _Pending.NEXT
 		main_ui.result_screen.show_result("Победа!", "Дальше")
+	elif win_scene:
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(win_scene)
 	else:
+		get_tree().paused = true
 		_pending = _Pending.RETRY
 		main_ui.result_screen.show_result("Игра пройдена!", "Заново")
 
