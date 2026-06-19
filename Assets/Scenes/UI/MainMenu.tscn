@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bicasqmd5o13m"]
 
 [ext_resource type="Script" uid="uid://bbr0iwdsk7khh" path="res://Assets/Scripts/UI/MainMenuUI.gd" id="1_aq6bw"]
-[ext_resource type="PackedScene" uid="uid://dmhhh11mjlcgs" path="res://Assets/Scenes/Main/Level1.tscn" id="2_l65x6"]
-[ext_resource type="PackedScene" uid="uid://dagpa61inee47" path="res://Assets/Scenes/UI/SettingsMenu.tscn" id="3_is7v7"]
 
 [node name="MainMenu" type="Control" unique_id=596721390]
 layout_mode = 3
@@ -12,8 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aq6bw")
-first_level = ExtResource("2_l65x6")
-settings_scene = ExtResource("3_is7v7")
+first_level = "uid://cj1k1vje8lxq7"
+settings_scene = "uid://dagpa61inee47"
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1959311262]
 layout_mode = 1

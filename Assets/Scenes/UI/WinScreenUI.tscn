@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://b67qdhkwo64yc"]
 
 [ext_resource type="Script" uid="uid://bnosh48utlg0s" path="res://Assets/Scripts/UI/WinScreenUi.gd" id="1_rufhu"]
-[ext_resource type="PackedScene" uid="uid://bicasqmd5o13m" path="res://Assets/Scenes/UI/MainMenu.tscn" id="2_gxk4s"]
-[ext_resource type="PackedScene" uid="uid://dmhhh11mjlcgs" path="res://Assets/Scenes/Main/Level1.tscn" id="3_nv7ec"]
 
 [node name="WinScreenUi" type="Control" unique_id=1089906874]
 layout_mode = 3
@@ -12,8 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rufhu")
-menu_scene = ExtResource("2_gxk4s")
-first_level = ExtResource("3_nv7ec")
+menu_scene = "uid://bicasqmd5o13m"
+first_level = "uid://cj1k1vje8lxq7"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1813187302]
 layout_mode = 1

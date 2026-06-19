@@ -1,9 +1,7 @@
 extends Control
 class_name SettingsMenu
 
-@export var menu_scene: PackedScene
-
-@onready var back_button: Button = $VBox/BackButton
+@export_file("*.tscn") var menu_scene: String
 
 
 func _ready() -> void:
@@ -11,5 +9,5 @@ func _ready() -> void:
 
 
 func _on_back() -> void:
-	if menu_scene:
-		get_tree().change_scene_to_packed(menu_scene)
+	if menu_scene != "":
+		get_tree().change_scene_to_file(menu_scene)
