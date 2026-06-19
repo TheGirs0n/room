@@ -2,8 +2,10 @@ extends Control
 class_name TutorialUI
 
 @export var cat: Cat  # единственная внешняя зависимость
+@export_file("*.tscn") var next_scene: String  # куда уйти после обучения
 
 @onready var hint_label: RichTextLabel = $RichTextLabel
+@onready var continue_button: Button = $ContinueButton
 
 enum Step { MOVE, PICKUP, RETURN, INTRO_EYE, INTRO_PAW, COMPLETE }
 
@@ -23,6 +25,8 @@ func _ready() -> void:
 	cat.disable_eye()
 	cat.disable_paw()
 
+	continue_button.hide()
+
 	EventBus.mouse_leave_old_room.connect(_on_leave_room)
 	EventBus.mouse_cheese_pickup.connect(_on_cheese_pickup)
 	EventBus.mouse_cheese_dropped.connect(_on_cheese_dropped)
@@ -41,9 +45,16 @@ func _show_step(step: Step) -> void:
 		Step.COMPLETE:
 			cat.disable_eye()
 			cat.disable_paw()
+			continue_button.show()
 
 
-func _on_leave_room(_room_id: int) -> void:  # ← переименовать
+func _on_continue() -> void:
+	SaveData.mark_tutorial_done()
+	if next_scene != "":
+		get_tree().change_scene_to_file(next_scene)
+
+
+func _on_leave_room(_room_id: int) -> void:
 	if current_step == Step.MOVE:
 		_show_step(Step.PICKUP)
 

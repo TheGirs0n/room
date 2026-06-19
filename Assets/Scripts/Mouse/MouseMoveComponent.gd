@@ -54,7 +54,7 @@ func move_another_room(next_room_id : int):
 		# такой соседней комнаты нет
 		return
 
-	if target.is_block_by_cat:
+	if current_room.is_block_by_cat and target.is_block_by_cat:
 		# комната заблокирована котом
 		EventBus.mouse_blocked_by_cat.emit()
 		return

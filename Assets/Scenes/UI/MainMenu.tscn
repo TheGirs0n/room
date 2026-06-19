@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aq6bw")
 first_level = "uid://cj1k1vje8lxq7"
+tutorial_scene = "uid://cj1k1vje8lxq7"
 settings_scene = "uid://dagpa61inee47"
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1959311262]

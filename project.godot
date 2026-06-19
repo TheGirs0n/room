@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*uid://pxfvm178mtfj"
+SaveData="*uid://0ppdk0cvx3gh"
 
 [file_customization]
 

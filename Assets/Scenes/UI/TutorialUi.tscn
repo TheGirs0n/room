@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dnnp8")
+next_scene = "uid://dmhhh11mjlcgs"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1706960439]
 layout_mode = 1
@@ -21,3 +22,16 @@ anchor_bottom = 0.2
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1049999643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.2
+anchor_right = 0.6
+anchor_bottom = 0.25
+action_mode = 0
+text = "Играть
+"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue"]
