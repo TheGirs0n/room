@@ -20,6 +20,7 @@ var _pending: _Pending = _Pending.NONE
 
 
 func _ready() -> void:
+	MusicPlayer.play(preload("res://Assets/Audio/Music/SneakySnitch.ogg"))
 	if not is_tutorial:
 		EventBus.mouse_spotted_by_cat.connect(_on_mouse_caught)
 		EventBus.level_completed.connect(_on_level_completed)

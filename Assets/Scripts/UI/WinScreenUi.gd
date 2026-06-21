@@ -7,6 +7,7 @@ class_name WinScreen
 
 func _ready() -> void:
 	get_tree().paused = false
+	MusicPlayer.play(preload("res://Assets/Audio/Music/MonkeysSpinningMonkeys.ogg"))
 
 
 func _on_menu() -> void:
