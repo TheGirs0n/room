@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _make_player() -> AudioStreamPlayer:
 	var p := AudioStreamPlayer.new()
-	p.bus = "Master"  # при желании заведи отдельную шину "Music"
+	p.bus = "Music"  # при желании заведи отдельную шину "Music"
 	p.volume_db = SILENCE_DB
 	add_child(p)
 	return p

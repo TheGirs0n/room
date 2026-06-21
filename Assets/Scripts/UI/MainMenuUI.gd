@@ -8,7 +8,7 @@ class_name MainMenuUI
 
 func _ready() -> void:
 	get_tree().paused = false
-	MusicPlayer.play(preload("res://Assets/Audio/Music/Pixelland.ogg"))
+	MusicPlayer.play(preload("res://Assets/Audio/Music/Pixelland.mp3"))
 
 
 func _on_play() -> void:

@@ -18,7 +18,7 @@ func _ready() -> void:
  process_mode = Node.PROCESS_MODE_ALWAYS  # звук и на паузе (экран результата)
  for i in pool_size:
   var p := AudioStreamPlayer.new()
-  p.bus = "Master"  # заведёшь шину "SFX" — поменяй здесь
+  p.bus = "SFX"  
   add_child(p)
   _players.append(p)
 

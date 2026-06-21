@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://ll7b4dl0veo"]
 
 [ext_resource type="Script" uid="uid://bfmsvg716daqo" path="res://Assets/Scripts/Global/SFXPlayer.gd" id="1_go8j2"]
+[ext_resource type="AudioStream" uid="uid://bh18ony7gtlpa" path="res://Assets/Audio/SFX/pluck_001.ogg" id="2_urbos"]
+[ext_resource type="AudioStream" uid="uid://c2td6k02i26xr" path="res://Assets/Audio/SFX/confirmation_001.ogg" id="3_jxvlh"]
+[ext_resource type="AudioStream" uid="uid://c8n3s85wo6mch" path="res://Assets/Audio/SFX/error_004.ogg" id="4_4c0c7"]
+[ext_resource type="AudioStream" uid="uid://dvfyc5r0u2ru7" path="res://Assets/Audio/SFX/impactPunch_medium_000.ogg" id="5_00ls6"]
+[ext_resource type="AudioStream" uid="uid://udeavrg3olyd" path="res://Assets/Audio/SFX/jingles_PIZZI00.ogg" id="6_1iuud"]
 
 [node name="SfxPlayer" type="Node" unique_id=847705531]
 script = ExtResource("1_go8j2")
+pickup = ExtResource("2_urbos")
+deliver = ExtResource("3_jxvlh")
+blocked = ExtResource("4_4c0c7")
+caught = ExtResource("5_00ls6")
+win = ExtResource("6_1iuud")
