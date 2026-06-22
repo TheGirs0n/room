@@ -43,6 +43,7 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=919633159]
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
 text = "Настройки"
 horizontal_alignment = 1
 vertical_alignment = 1

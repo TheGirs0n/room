@@ -32,6 +32,10 @@ alignment = 1
 [node name="Label" type="Label" parent="VBox" unique_id=1116526042]
 layout_mode = 2
 size_flags_horizontal = 5
+theme_type_variation = &"TitleLabel"
+text = "Rat in the Room"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBox" unique_id=233603987]
 layout_mode = 2
