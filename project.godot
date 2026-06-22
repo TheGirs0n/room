@@ -39,6 +39,10 @@ folder_colors={
 "res://Assets/Translation/": "purple"
 }
 
+[gui]
+
+theme/custom="uid://cqlckpgvg58uk"
+
 [input]
 
 pickup={

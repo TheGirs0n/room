@@ -1,0 +1,29 @@
+[gd_resource type="Theme" format=3 uid="uid://cqlckpgvg58uk"]
+
+[ext_resource type="FontFile" uid="uid://b8w0d3ihueg62" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-Medium.ttf" id="1_41bgo"]
+[ext_resource type="FontFile" uid="uid://cuhs2syxtoxqe" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Regular.ttf" id="2_fjnqa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjnqa"]
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41bgo"]
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[resource]
+default_font = ExtResource("2_fjnqa")
+default_font_size = 20
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_41bgo")
+Button/styles/normal = SubResource("StyleBoxFlat_fjnqa")
+Label/fonts/font = ExtResource("2_fjnqa")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_41bgo")
+RichTextLabel/font_sizes/normal_font_size = 22
+RichTextLabel/fonts/normal_font = ExtResource("2_fjnqa")
