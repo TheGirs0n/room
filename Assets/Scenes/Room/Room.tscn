@@ -11,7 +11,7 @@ texture = ExtResource("1_o888g")
 script = ExtResource("1_10bim")
 room_id_label = NodePath("Label")
 color_rect_spot = NodePath("ColorSpot")
-exit_marker = NodePath("")
+exit_marker = NodePath("Sprite2D")
 
 [node name="Label" type="Label" parent="." unique_id=560755868]
 offset_left = -17.0

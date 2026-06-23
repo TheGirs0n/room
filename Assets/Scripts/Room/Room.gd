@@ -9,7 +9,7 @@ class_name Room
 @export_group("Room UI")
 @export var room_id_label : Label
 @export var color_rect_spot : ColorRect
-@export var exit_marker : ColorRect
+@export var exit_marker : Sprite2D
 
 var visible_items_tween : Tween
 var hide_items_tween : Tween

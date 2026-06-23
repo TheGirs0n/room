@@ -4,22 +4,29 @@
 [ext_resource type="Script" uid="uid://qntydfy7jj4p" path="res://Assets/Scripts/Cat/Cat.gd" id="1_hipmd"]
 [ext_resource type="Script" uid="uid://dfvn4hm1odxkc" path="res://Assets/Scripts/Cat/CatSeekEyeComponent.gd" id="2_6sapc"]
 [ext_resource type="Script" uid="uid://icv2qargtdit" path="res://Assets/Scripts/Cat/CatPutPawComponent.gd" id="3_eog7f"]
-[ext_resource type="Texture2D" uid="uid://bttfp3xqy6jdt" path="res://Assets/Sprites/evil-eyes (1).svg" id="3_vpwgb"]
 [ext_resource type="Texture2D" uid="uid://dpim6lvikspa3" path="res://Assets/Sprites/paw-print (1).svg" id="6_wjnjr"]
 
+[sub_resource type="Gradient" id="Gradient_2qmas"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gxear"]
+gradient = SubResource("Gradient_2qmas")
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [node name="Cat" type="Sprite2D" unique_id=316588685 node_paths=PackedStringArray("cat_seek_eye_component", "cat_put_paw_component")]
-modulate = Color(0.16862746, 0.16862746, 0.22745098, 1)
+self_modulate = Color(0.16862746, 0.16862746, 0.22745098, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_gxear")
 script = ExtResource("1_hipmd")
 cat_seek_eye_component = NodePath("CatSeekEyeComponent")
 cat_put_paw_component = NodePath("CatPutPawComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=362633204]
-modulate = Color(1, 0.88235295, 0.3019608, 1)
-position = Vector2(124.28571, -94.28573)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_vpwgb")
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1602589397]
+position = Vector2(70, -98.571434)
+color = Color(1, 1, 0.6080301, 1)
+energy = 4.46
+texture = SubResource("GradientTexture2D_gxear")
 
 [node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer")]
 script = ExtResource("2_6sapc")

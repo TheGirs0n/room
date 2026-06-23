@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://87ksh181sx1u" path="res://Assets/Sprites/mouse (1).svg" id="1_rxdl7"]
 [ext_resource type="Script" uid="uid://dbqlxtjx64pt8" path="res://Assets/Scripts/Mouse/MouseMoveComponent.gd" id="2_24kqb"]
 [ext_resource type="Script" uid="uid://3ppw77glhi14" path="res://Assets/Scripts/Mouse/MousePickupComponent.gd" id="3_rxdl7"]
+[ext_resource type="Texture2D" uid="uid://ducfgjjnh4o1t" path="res://Assets/Sprites/cheese-wedge (1).svg" id="5_mox4p"]
 
 [node name="Mouse" type="Sprite2D" unique_id=1253555285 node_paths=PackedStringArray("mouse_move_component", "mouse_pickup_component")]
 modulate = Color(0.6039216, 0.627451, 0.6509804, 1)
@@ -21,3 +22,7 @@ script = ExtResource("3_rxdl7")
 cheese_sprite = NodePath("CheeseSprite")
 
 [node name="CheeseSprite" type="Sprite2D" parent="MousePickupComponent" unique_id=239265543]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -4)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_mox4p")
