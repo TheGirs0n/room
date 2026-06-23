@@ -18,6 +18,7 @@ is_tutorial = true
 next_level = ExtResource("2_5pj2k")
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("2_jqd4d")]
+position = Vector2(543.99994, 320.99997)
 
 [node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("4_5pj2k")]
 

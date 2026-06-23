@@ -27,6 +27,7 @@ room_id = 2
 room_linked_array = [NodePath("../Room"), NodePath("../Room3")]
 
 [node name="Cheese" parent="Room2" unique_id=663179565 instance=ExtResource("3_bxq5i")]
+position = Vector2(128.57143, 57.142857)
 
 [node name="Room3" parent="." unique_id=3817860 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(592, 264)

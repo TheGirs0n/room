@@ -18,6 +18,7 @@ next_level = ExtResource("2_uiip3")
 [node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_ufsxu")]
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_uiip3")]
+position = Vector2(225.99998, 314.99997)
 
 [node name="Level2" parent="." unique_id=1046303588 instance=ExtResource("5_ufsxu")]
 

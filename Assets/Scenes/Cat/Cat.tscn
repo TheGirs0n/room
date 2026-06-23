@@ -11,8 +11,11 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gxear"]
 gradient = SubResource("Gradient_2qmas")
+width = 256
+height = 256
+fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
+fill_to = Vector2(0.5, 0)
 
 [node name="Cat" type="Sprite2D" unique_id=316588685 node_paths=PackedStringArray("cat_seek_eye_component", "cat_put_paw_component")]
 self_modulate = Color(0.16862746, 0.16862746, 0.22745098, 1)
@@ -23,17 +26,19 @@ cat_seek_eye_component = NodePath("CatSeekEyeComponent")
 cat_put_paw_component = NodePath("CatPutPawComponent")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1602589397]
-position = Vector2(70, -98.571434)
-color = Color(1, 1, 0.6080301, 1)
-energy = 4.46
+position = Vector2(68.571434, -100.000015)
+scale = Vector2(0.3, 0.3)
+color = Color(1, 0.88235295, 0.3019608, 1)
+energy = 1.5
 texture = SubResource("GradientTexture2D_gxear")
 
-[node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer")]
+[node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer", "watch_light")]
 script = ExtResource("2_6sapc")
 seek_timer = NodePath("SeekTimer")
 seek_timer_waittime = 2.0
 rest_timer = NodePath("RestTimer")
 rest_timer_waittime = 4.0
+watch_light = NodePath("../PointLight2D")
 
 [node name="SeekTimer" type="Timer" parent="CatSeekEyeComponent" unique_id=151681504]
 one_shot = true
