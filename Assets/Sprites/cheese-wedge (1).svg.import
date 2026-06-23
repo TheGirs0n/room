@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diw5baxj0ub5d"
-path="res://.godot/imported/paw-print.svg-2b5cae8cd059705cceaf85e33d85cd09.ctex"
+uid="uid://ducfgjjnh4o1t"
+path="res://.godot/imported/cheese-wedge (1).svg-72e621125e001d34898017d6b49ca8d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/paw-print.svg"
-dest_files=["res://.godot/imported/paw-print.svg-2b5cae8cd059705cceaf85e33d85cd09.ctex"]
+source_file="res://Assets/Sprites/cheese-wedge (1).svg"
+dest_files=["res://.godot/imported/cheese-wedge (1).svg-72e621125e001d34898017d6b49ca8d4.ctex"]
 
 [params]
 

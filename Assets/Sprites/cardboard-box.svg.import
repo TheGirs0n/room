@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwkacq67exwcm"
-path="res://.godot/imported/exit-door.svg-00956e73aef59640c576f58a7d447b4a.ctex"
+uid="uid://d4hlkbm44n3mn"
+path="res://.godot/imported/cardboard-box.svg-a74dac31e9d518dad41f59da1c3d8546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/exit-door.svg"
-dest_files=["res://.godot/imported/exit-door.svg-00956e73aef59640c576f58a7d447b4a.ctex"]
+source_file="res://Assets/Sprites/cardboard-box.svg"
+dest_files=["res://.godot/imported/cardboard-box.svg-a74dac31e9d518dad41f59da1c3d8546.ctex"]
 
 [params]
 

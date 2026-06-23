@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7qiwddhkykq"
-path="res://.godot/imported/cat.svg-8cfdc657d181706d13bc4893c6e21c1d.ctex"
+uid="uid://bttfp3xqy6jdt"
+path="res://.godot/imported/evil-eyes (1).svg-0ccd2ca715c2a7d76577239bbb4aaca7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/cat.svg"
-dest_files=["res://.godot/imported/cat.svg-8cfdc657d181706d13bc4893c6e21c1d.ctex"]
+source_file="res://Assets/Sprites/evil-eyes (1).svg"
+dest_files=["res://.godot/imported/evil-eyes (1).svg-0ccd2ca715c2a7d76577239bbb4aaca7.ctex"]
 
 [params]
 

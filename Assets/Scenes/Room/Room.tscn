@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://b55uxsm51tmrj"]
 
 [ext_resource type="Script" uid="uid://4gx138bhpnvc" path="res://Assets/Scripts/Room/Room.gd" id="1_10bim"]
-[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="1_o888g"]
+[ext_resource type="Texture2D" uid="uid://d4hlkbm44n3mn" path="res://Assets/Sprites/cardboard-box.svg" id="1_o888g"]
+[ext_resource type="Texture2D" uid="uid://bax58qfkpvtc2" path="res://Assets/Sprites/exit-door (1).svg" id="3_htohj"]
 
 [node name="Room" type="Sprite2D" unique_id=738098307 node_paths=PackedStringArray("room_id_label", "color_rect_spot", "exit_marker")]
+modulate = Color(0.22745098, 0.24705882, 0.29411766, 1)
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("1_o888g")
 script = ExtResource("1_10bim")
 room_id_label = NodePath("Label")
 color_rect_spot = NodePath("ColorSpot")
-exit_marker = NodePath("ExitMarker")
+exit_marker = NodePath("")
 
 [node name="Label" type="Label" parent="." unique_id=560755868]
 offset_left = -17.0
@@ -33,11 +36,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(1, 0.58383155, 0.58383155, 1)
 
-[node name="ExitMarker" type="ColorRect" parent="." unique_id=1037465576]
-clip_contents = true
-custom_minimum_size = Vector2(127.295, 125.99)
-offset_left = -61.0
-offset_top = -64.0
-offset_right = 66.295
-offset_bottom = 61.989998
-color = Color(0.58383155, 1, 0.6651851, 0.35000002)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659252044]
+modulate = Color(0.58431375, 1, 0.6666667, 0.34901962)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("3_htohj")
