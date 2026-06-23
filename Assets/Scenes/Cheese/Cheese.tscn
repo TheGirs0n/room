@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cqvv04cdf20sy"]
 
-[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="1_k4gvi"]
+[ext_resource type="Texture2D" uid="uid://i1jcrd0iskdx" path="res://Assets/Sprites/cheese-wedge.svg" id="1_emcdx"]
 [ext_resource type="Script" uid="uid://centm7lxinuya" path="res://Assets/Scripts/Cheese/Cheese.gd" id="2_emcdx"]
 
 [node name="Cheese" type="Sprite2D" unique_id=1578309279]
-modulate = Color(1, 1, 0.47058824, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_k4gvi")
+modulate = Color(1, 0.827451, 0.3019608, 1)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_emcdx")
 script = ExtResource("2_emcdx")

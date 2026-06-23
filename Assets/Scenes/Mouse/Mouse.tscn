@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://crjavyujjtwag"]
 
 [ext_resource type="Script" uid="uid://dhvusqo1llst4" path="res://Assets/Scripts/Mouse/Mouse.gd" id="1_41cst"]
-[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="1_rxdl7"]
+[ext_resource type="Texture2D" uid="uid://clviyrf18kqus" path="res://Assets/Sprites/mouse.svg" id="1_rxdl7"]
 [ext_resource type="Script" uid="uid://dbqlxtjx64pt8" path="res://Assets/Scripts/Mouse/MouseMoveComponent.gd" id="2_24kqb"]
 [ext_resource type="Script" uid="uid://3ppw77glhi14" path="res://Assets/Scripts/Mouse/MousePickupComponent.gd" id="3_rxdl7"]
 
 [node name="Mouse" type="Sprite2D" unique_id=1253555285 node_paths=PackedStringArray("mouse_move_component", "mouse_pickup_component")]
-modulate = Color(0.33260515, 0.33260515, 0.33260515, 1)
-scale = Vector2(0.25, 0.25)
+modulate = Color(0.6039216, 0.627451, 0.6509804, 1)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("1_rxdl7")
 script = ExtResource("1_41cst")
 mouse_move_component = NodePath("MouseMoveComponent")

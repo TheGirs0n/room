@@ -1,16 +1,25 @@
 [gd_scene format=3 uid="uid://3pa06r1f4m2x"]
 
+[ext_resource type="Texture2D" uid="uid://c7qiwddhkykq" path="res://Assets/Sprites/cat.svg" id="1_2qmas"]
 [ext_resource type="Script" uid="uid://qntydfy7jj4p" path="res://Assets/Scripts/Cat/Cat.gd" id="1_hipmd"]
 [ext_resource type="Script" uid="uid://dfvn4hm1odxkc" path="res://Assets/Scripts/Cat/CatSeekEyeComponent.gd" id="2_6sapc"]
 [ext_resource type="Script" uid="uid://icv2qargtdit" path="res://Assets/Scripts/Cat/CatPutPawComponent.gd" id="3_eog7f"]
-[ext_resource type="Texture2D" uid="uid://tymyqe5uijj8" path="res://icon.svg" id="4_eog7f"]
+[ext_resource type="Texture2D" uid="uid://d28xgkenwu58d" path="res://Assets/Sprites/evil-eyes.svg" id="3_gxear"]
+[ext_resource type="Texture2D" uid="uid://diw5baxj0ub5d" path="res://Assets/Sprites/paw-print.svg" id="6_gxear"]
 
 [node name="Cat" type="Sprite2D" unique_id=316588685 node_paths=PackedStringArray("cat_seek_eye_component", "cat_put_paw_component")]
+self_modulate = Color(0.16862746, 0.16862746, 0.22745098, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2qmas")
 script = ExtResource("1_hipmd")
 cat_seek_eye_component = NodePath("CatSeekEyeComponent")
 cat_put_paw_component = NodePath("CatPutPawComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=362633204]
+self_modulate = Color(1, 0.88235295, 0.3019608, 1)
+position = Vector2(124, -96)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_gxear")
 
 [node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer")]
 script = ExtResource("2_6sapc")
@@ -42,7 +51,7 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="CatPutPawComponent" unique_id=2013431435]
 modulate = Color(0.59000003, 1, 0.8769999, 1)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_eog7f")
+texture = ExtResource("6_gxear")
 
 [connection signal="timeout" from="CatSeekEyeComponent/SeekTimer" to="CatSeekEyeComponent" method="seek_over"]
 [connection signal="timeout" from="CatSeekEyeComponent/RestTimer" to="CatSeekEyeComponent" method="rest_over"]
