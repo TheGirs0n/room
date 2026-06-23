@@ -4,10 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hlkbm44n3mn" path="res://Assets/Sprites/cardboard-box.svg" id="1_o888g"]
 [ext_resource type="Texture2D" uid="uid://bax58qfkpvtc2" path="res://Assets/Sprites/exit-door (1).svg" id="3_htohj"]
 
-[node name="Room" type="Sprite2D" unique_id=738098307 node_paths=PackedStringArray("room_id_label", "color_rect_spot", "exit_marker")]
-modulate = Color(0.22745098, 0.24705882, 0.29411766, 1)
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("1_o888g")
+[node name="Room" type="Node2D" unique_id=1541439491 node_paths=PackedStringArray("room_id_label", "color_rect_spot", "exit_marker")]
 script = ExtResource("1_10bim")
 room_id_label = NodePath("Label")
 color_rect_spot = NodePath("ColorSpot")
@@ -37,6 +34,12 @@ size_flags_vertical = 3
 color = Color(1, 0.58383155, 0.58383155, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659252044]
-modulate = Color(0.58431375, 1, 0.6666667, 0.34901962)
-scale = Vector2(0.16, 0.16)
+modulate = Color(0, 0.94202113, 0, 1)
+position = Vector2(0, -15)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_htohj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=226873429]
+modulate = Color(0.22745098, 0.24705882, 0.29411766, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_o888g")

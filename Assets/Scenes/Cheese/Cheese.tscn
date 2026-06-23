@@ -5,6 +5,6 @@
 
 [node name="Cheese" type="Sprite2D" unique_id=1578309279]
 modulate = Color(1, 0.827451, 0.3019608, 1)
-scale = Vector2(0.055, 0.055)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_emcdx")
 script = ExtResource("2_emcdx")
