@@ -1,6 +1,7 @@
 extends Node
 class_name MouseMoveComponent
 
+@export var facing_offset_deg : float = 0.0
 var current_room : Room
 
 var movement_tween : Tween
@@ -66,10 +67,14 @@ func move_another_room(next_room_id : int):
 	if movement_tween:
 		movement_tween.kill()
 
+	var to_target := current_room.global_position - mouse_main.global_position
+	var face_rot := to_target.angle() + deg_to_rad(facing_offset_deg)
+
 	movement_tween = create_tween()
 	movement_tween.set_ease(Tween.EASE_IN_OUT)
 	movement_tween.set_trans(Tween.TRANS_CUBIC)
-	movement_tween.tween_property(mouse_main, "global_position", current_room.global_position, 1)
+	movement_tween.parallel().tween_property(mouse_main, "rotation", face_rot, 0.25)
+	movement_tween.parallel().tween_property(mouse_main, "global_position", current_room.global_position, 1)
 	movement_tween.finished.connect(movement_tween_end)
 
 

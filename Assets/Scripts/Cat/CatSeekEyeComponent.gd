@@ -10,7 +10,7 @@ class_name CatSeekEyeComponent
 @export var rest_timer_waittime : float
 
 @export_group("Watch Light")
-@export var watch_light : PointLight2D       # опционально: свет кота
+@export var watch_lights : Array[PointLight2D]       # опционально: свет кота
 @export var light_calm_energy : float = 0.6  # энергия в покое (0 = погашен)
 @export var light_pulse_energy : float = 2.0 # пик пульса при слежке
 @export var pulse_time : float = 0.5         # полупериод пульса, сек
@@ -27,9 +27,13 @@ func _ready() -> void:
 	seek_timer.wait_time = seek_timer_waittime
 	rest_timer.wait_time = rest_timer_waittime
 
-	if watch_light:
-		watch_light.energy = light_calm_energy
+	_set_lights_energy(light_calm_energy)
 
+func _set_lights_energy(e: float) -> void:
+	for l in watch_lights:
+		if l:
+			l.energy = e
+	
 
 func setup(room_array : Array[Room]):
 	rooms_array = room_array
@@ -69,19 +73,18 @@ func disable() -> void:
 
 
 func _start_pulse() -> void:
-	if watch_light == null:
+	if watch_lights.is_empty():
 		return
 	if _pulse_tween:
 		_pulse_tween.kill()
 	_pulse_tween = create_tween().set_loops()
-	_pulse_tween.tween_property(watch_light, "energy", light_pulse_energy, pulse_time)\
-		.set_trans(Tween.TRANS_SINE)
-	_pulse_tween.tween_property(watch_light, "energy", light_calm_energy, pulse_time)\
-		.set_trans(Tween.TRANS_SINE)
+	_pulse_tween.tween_method(_set_lights_energy, light_calm_energy, light_pulse_energy, pulse_time)\
+	.set_trans(Tween.TRANS_SINE)
+	_pulse_tween.tween_method(_set_lights_energy, light_pulse_energy, light_calm_energy, pulse_time)\
+	.set_trans(Tween.TRANS_SINE)
 
 
 func _stop_pulse() -> void:
 	if _pulse_tween:
 		_pulse_tween.kill()
-	if watch_light:
-		watch_light.energy = light_calm_energy
+	_set_lights_energy(light_calm_energy)

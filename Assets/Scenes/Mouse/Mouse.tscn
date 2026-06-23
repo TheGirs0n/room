@@ -16,6 +16,7 @@ mouse_pickup_component = NodePath("MousePickupComponent")
 
 [node name="MouseMoveComponent" type="Node" parent="." unique_id=1536524929]
 script = ExtResource("2_24kqb")
+facing_offset_deg = -30.0
 
 [node name="MousePickupComponent" type="Node" parent="." unique_id=1921685706 node_paths=PackedStringArray("cheese_sprite")]
 script = ExtResource("3_rxdl7")
