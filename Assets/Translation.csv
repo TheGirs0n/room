@@ -1,0 +1,22 @@
+keys,en,ru
+GAME_TITLE,Mouse in the Room,Мышь в комнате
+BTN_PLAY,Play,Играть
+BTN_SETTINGS,Settings,Настройки
+BTN_BACK,Back,Назад
+BTN_TO_MENU,To menu,В меню
+BTN_RESTART,Restart,Заново
+BTN_NEXT,Next,Дальше
+SET_TITLE,Settings,Настройки
+SET_MASTER,Overall,Общая
+SET_MUSIC,Music,Музыка
+SET_SFX,Sound,Звуки
+SET_LANGUAGE,Language,Язык
+RESULT_WIN,Victory!,Победа!
+RESULT_LOSE,Caught!,Поражение
+RESULT_COMPLETE,Game complete!,Игра пройдена!
+TUT_MOVE,"Press a neighboring room's number to move","Нажми цифру соседней комнаты, чтобы переместиться"
+TUT_PICKUP,"Press E to grab the cheese","Нажми У, чтобы подобрать сыр"
+TUT_RETURN,Return to the exit room,Вернись в комнату выхода
+TUT_EYE,"The cat watches some rooms — enter the marked one","Кот следит за некоторыми комнатами — зайди в отмеченную"
+TUT_PAW,"The cat now will block a room with its paw — find another way! (For next step try to move through paw)","Кот сейчас заблокирует лапой комнату — найди другой путь! (Для продолжения уткнись в лапу)"
+TUT_COMPLETE,"Great! Now you know everything — good luck!","Отлично! Теперь ты знаешь всё — удачи!"

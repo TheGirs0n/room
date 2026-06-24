@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6mmaw67gi6a8" path="res://Assets/Scripts/UI/SettingsMenu.gd" id="1_yhcg0"]
 
-[node name="SettingsMenu" type="Control" unique_id=1333108416 node_paths=PackedStringArray("master_slider", "master_label", "music_slider", "music_label", "sfx_slider", "sfx_label")]
+[node name="SettingsMenu" type="Control" unique_id=1333108416 node_paths=PackedStringArray("master_slider", "master_label", "music_slider", "music_label", "sfx_slider", "sfx_label", "language_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ music_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxCont
 music_label = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Label2")
 sfx_slider = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HSlider")
 sfx_label = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Label2")
+language_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/Button")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=325816856]
 layout_mode = 1
@@ -44,7 +45,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=919633159]
 layout_mode = 2
 theme_type_variation = &"TitleLabel"
-text = "Настройки"
+text = "SET_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,7 +56,7 @@ theme_override_constants/separation = 12
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1550422255]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Общая"
+text = "SET_MASTER"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=608349093]
@@ -77,7 +78,7 @@ theme_override_constants/separation = 12
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2094513576]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Музыка"
+text = "SET_MUSIC"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=473198298]
@@ -99,7 +100,7 @@ theme_override_constants/separation = 12
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=336122958]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-text = "Звуки"
+text = "SET_SFX"
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=877929522]
@@ -114,10 +115,26 @@ layout_mode = 2
 text = "100%"
 horizontal_alignment = 2
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=775794029]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1136980027]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "SET_LANGUAGE"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1909419751]
+clip_contents = true
+layout_mode = 2
+action_mode = 0
+text = "RU"
+
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=712196469]
 layout_mode = 2
 size_flags_horizontal = 4
 action_mode = 0
-text = "Назад"
+text = "BTN_BACK"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_back"]

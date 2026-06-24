@@ -33,7 +33,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 5
 theme_type_variation = &"TitleLabel"
-text = "Rat in the Room"
+text = "GAME_TITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,14 +42,14 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 action_mode = 0
-text = "Играть"
+text = "BTN_PLAY"
 
 [node name="SettingsButton" type="Button" parent="VBox" unique_id=196944184]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 action_mode = 0
-text = "Настройки"
+text = "BTN_SETTINGS"
 
 [connection signal="pressed" from="VBox/PlayButton" to="." method="_on_play"]
 [connection signal="pressed" from="VBox/SettingsButton" to="." method="_on_settings"]

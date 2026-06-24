@@ -50,6 +50,10 @@ pickup={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Translation.en.translation", "res://Assets/Translation.ru.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

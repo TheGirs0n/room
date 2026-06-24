@@ -1,12 +1,12 @@
 extends Node
-# Автолоад: хранит прогресс и настройки между сессиями
 
 const SAVE_PATH := "user://save.cfg"
 
 var tutorial_done: bool = false
-var master_volume: float = 1.0  # 0..1
-var music_volume: float = 1.0   # 0..1
-var sfx_volume: float = 1.0     # 0..1
+var master_volume: float = 1.0
+var music_volume: float = 1.0
+var sfx_volume: float = 1.0
+var locale: String = "ru"
 
 
 func _ready() -> void:
@@ -14,10 +14,17 @@ func _ready() -> void:
 	_apply_volume("Master", master_volume)
 	_apply_volume("Music", music_volume)
 	_apply_volume("SFX", sfx_volume)
+	TranslationServer.set_locale(locale)
 
 
 func mark_tutorial_done() -> void:
 	tutorial_done = true
+	_save()
+
+
+func set_locale(new_locale: String) -> void:
+	locale = new_locale
+	TranslationServer.set_locale(new_locale)
 	_save()
 
 
@@ -51,6 +58,7 @@ func _save() -> void:
 	cfg.set_value("audio", "master_volume", master_volume)
 	cfg.set_value("audio", "music_volume", music_volume)
 	cfg.set_value("audio", "sfx_volume", sfx_volume)
+	cfg.set_value("locale", "locale", locale)
 	cfg.save(SAVE_PATH)
 
 
@@ -61,3 +69,4 @@ func _load() -> void:
 		master_volume = cfg.get_value("audio", "master_volume", 1.0)
 		music_volume = cfg.get_value("audio", "music_volume", 1.0)
 		sfx_volume = cfg.get_value("audio", "sfx_volume", 1.0)
+		locale = cfg.get_value("locale", "locale", "ru")

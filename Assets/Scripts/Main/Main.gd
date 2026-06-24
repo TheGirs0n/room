@@ -56,7 +56,7 @@ func _on_mouse_caught() -> void:
 	mouse_main.mouse_get_captured()
 	get_tree().paused = true
 	_pending = _Pending.RETRY
-	main_ui.result_screen.show_result("Поражение", "Заново")
+	main_ui.result_screen.show_result("RESULT_LOSE", "BTN_RESTART")
 
 
 func _on_level_completed():
@@ -64,14 +64,14 @@ func _on_level_completed():
 	if next_level:
 		get_tree().paused = true
 		_pending = _Pending.NEXT
-		main_ui.result_screen.show_result("Победа!", "Дальше")
+		main_ui.result_screen.show_result("RESULT_WIN", "BTN_NEXT")
 	elif win_scene:
 		get_tree().paused = false
 		get_tree().change_scene_to_packed(win_scene)
 	else:
 		get_tree().paused = true
 		_pending = _Pending.RETRY
-		main_ui.result_screen.show_result("Игра пройдена!", "Заново")
+		main_ui.result_screen.show_result("RESULT_COMPLETE", "BTN_RESTART")
 
 
 func _on_result_confirmed() -> void:

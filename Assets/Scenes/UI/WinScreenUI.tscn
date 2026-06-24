@@ -37,11 +37,11 @@ grow_vertical = 2
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=2104835076]
 layout_mode = 2
-text = "В меню"
+text = "BTN_TO_MENU"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=1195950381]
 layout_mode = 2
-text = "Заново"
+text = "BTN_RESTART"
 
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu"]
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart"]

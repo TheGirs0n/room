@@ -10,10 +10,13 @@ class_name SettingsMenu
 @export_group("Music")
 @export var music_slider: HSlider
 @export var music_label: Label
-@export_group("SFX")
 
+@export_group("SFX")
 @export var sfx_slider: HSlider
 @export var sfx_label: Label
+
+@export_group("Language")
+@export var language_button: Button
 
 
 func _ready() -> void:
@@ -22,6 +25,10 @@ func _ready() -> void:
 	_setup(music_slider, music_label, SaveData.music_volume, SaveData.set_music_volume)
 	_setup(sfx_slider, sfx_label, SaveData.sfx_volume, SaveData.set_sfx_volume)
 
+	if language_button:
+		_update_language_button()
+		language_button.pressed.connect(_on_language_pressed)
+
 
 func _setup(slider: HSlider, label: Label, start_value: float, on_changed: Callable) -> void:
 	if slider == null:
@@ -29,7 +36,7 @@ func _setup(slider: HSlider, label: Label, start_value: float, on_changed: Calla
 	slider.min_value = 0.0
 	slider.max_value = 1.0
 	slider.step = 0.01
-	slider.value = start_value          # до connect, чтобы не дёрнуть колбэк
+	slider.value = start_value
 	_update_label(label, start_value)
 	slider.value_changed.connect(on_changed)
 	slider.value_changed.connect(func(v: float): _update_label(label, v))
@@ -38,6 +45,16 @@ func _setup(slider: HSlider, label: Label, start_value: float, on_changed: Calla
 func _update_label(label: Label, v: float) -> void:
 	if label:
 		label.text = "%d%%" % roundi(v * 100.0)
+
+
+func _on_language_pressed() -> void:
+	var next := "en" if TranslationServer.get_locale().begins_with("ru") else "ru"
+	SaveData.set_locale(next)
+	_update_language_button()
+
+
+func _update_language_button() -> void:
+	language_button.text = "RU" if TranslationServer.get_locale().begins_with("ru") else "EN"
 
 
 func _on_back() -> void:

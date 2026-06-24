@@ -10,13 +10,12 @@ class_name TutorialUI
 enum Step { MOVE, PICKUP, RETURN, INTRO_EYE, INTRO_PAW, COMPLETE }
 
 const HINTS: Dictionary = {
-	Step.MOVE:      "Нажми цифру соседней комнаты, чтобы переместиться",
-	Step.PICKUP:    "Нажми E, чтобы подобрать сыр",
-	Step.RETURN:    "Вернись в комнату выхода",
-	Step.INTRO_EYE: "Кот следит за некоторыми комнатами — зайди в отмеченную",
-	Step.INTRO_PAW: "Кот сейчас заблокировает лапой комнату — найди другой путь! (Для продолжения ударься об лапу)",
-	Step.COMPLETE:  "Отлично! Теперь ты знаешь всё — удачи!"
-}
+	Step.MOVE:      "TUT_MOVE",
+  Step.PICKUP:    "TUT_PICKUP",
+  Step.RETURN:    "TUT_RETURN",
+  Step.INTRO_EYE: "TUT_EYE",
+  Step.INTRO_PAW: "TUT_PAW",
+  Step.COMPLETE:  "TUT_COMPLETE"}
 
 var current_step: Step = Step.MOVE
 
@@ -38,7 +37,7 @@ func _ready() -> void:
 
 func _show_step(step: Step) -> void:
 	current_step = step
-	hint_label.text = HINTS[step]
+	hint_label.text = tr(HINTS[step])
 	match step:
 		Step.INTRO_EYE: cat.enable_eye()
 		Step.INTRO_PAW: cat.enable_paw()
