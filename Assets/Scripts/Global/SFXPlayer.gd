@@ -1,21 +1,21 @@
 extends Node
 
 @export_group("Sounds")
-@export var pickup: AudioStream      # подобрал сыр
-@export var deliver: AudioStream     # донёс сыр в выход
-@export var blocked: AudioStream     # упёрся в лапу кота
-@export var caught: AudioStream      # попался коту
-@export var win: AudioStream         # уровень пройден
+@export var pickup: AudioStream      
+@export var deliver: AudioStream     
+@export var blocked: AudioStream     
+@export var caught: AudioStream      
+@export var win: AudioStream         
 
 @export_group("Settings")
 @export var pool_size: int = 6
-@export var volume_db: float = 0.0
+@export var volume_db: float = -15.0
 
 var _players: Array[AudioStreamPlayer] = []
 var _next: int = 0
 
 func _ready() -> void:
- process_mode = Node.PROCESS_MODE_ALWAYS  # звук и на паузе (экран результата)
+ process_mode = Node.PROCESS_MODE_ALWAYS  
  for i in pool_size:
   var p := AudioStreamPlayer.new()
   p.bus = "SFX"  

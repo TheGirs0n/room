@@ -68,8 +68,8 @@ one_shot = true
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CatPutPawComponent" unique_id=2013431435]
-modulate = Color(0.8980392, 0.3254902, 0.23921569, 1)
-scale = Vector2(0.27, 0.27)
+modulate = Color(0.2664, 0.2664, 0.36, 1)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("6_wjnjr")
 
 [connection signal="timeout" from="CatSeekEyeComponent/SeekTimer" to="CatSeekEyeComponent" method="seek_over"]

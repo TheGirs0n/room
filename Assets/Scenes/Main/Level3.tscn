@@ -15,10 +15,11 @@ main_ui = NodePath("MainUi")
 current_level = NodePath("Level3")
 next_level = ExtResource("2_68qom")
 
+[node name="Level3" parent="." unique_id=1046303588 instance=ExtResource("5_nkjph")]
+
 [node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_nkjph")]
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_68qom")]
-
-[node name="Level3" parent="." unique_id=1046303588 instance=ExtResource("5_nkjph")]
+position = Vector2(546.99994, 336.99997)
 
 [node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("5_0ntnh")]

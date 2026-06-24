@@ -1,8 +1,8 @@
 extends Control
 class_name TutorialUI
 
-@export var cat: Cat  # единственная внешняя зависимость
-@export_file("*.tscn") var next_scene: String  # куда уйти после обучения
+@export var cat: Cat  
+@export_file("*.tscn") var next_scene: String  
 
 @onready var hint_label: RichTextLabel = $RichTextLabel
 @onready var continue_button: Button = $ContinueButton
@@ -11,10 +11,10 @@ enum Step { MOVE, PICKUP, RETURN, INTRO_EYE, INTRO_PAW, COMPLETE }
 
 const HINTS: Dictionary = {
 	Step.MOVE:      "Нажми цифру соседней комнаты, чтобы переместиться",
-	Step.PICKUP:    "Нажми [pickup], чтобы подобрать сыр",
+	Step.PICKUP:    "Нажми E, чтобы подобрать сыр",
 	Step.RETURN:    "Вернись в комнату выхода",
 	Step.INTRO_EYE: "Кот следит за некоторыми комнатами — зайди в отмеченную",
-	Step.INTRO_PAW: "Кот заблокировал лапой комнату — найди другой путь",
+	Step.INTRO_PAW: "Кот сейчас заблокировает лапой комнату — найди другой путь! (Для продолжения ударься об лапу)",
 	Step.COMPLETE:  "Отлично! Теперь ты знаешь всё — удачи!"
 }
 
