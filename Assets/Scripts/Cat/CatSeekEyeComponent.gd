@@ -15,6 +15,12 @@ class_name CatSeekEyeComponent
 @export var light_pulse_energy : float = 2.0 # пик пульса при слежке
 @export var pulse_time : float = 0.5         # полупериод пульса, сек
 
+@export_group("Eyes")
+@export var eyes_sprite : Node2D              # спрайт глаз (форма/зрачки)
+@export var eyes_pulse_scale : float = 1.25   
+
+var _eyes_base_scale : Vector2 = Vector2.ONE
+
 var current_seek_room : Room = null
 var rooms_array : Array[Room]
 
@@ -27,12 +33,17 @@ func _ready() -> void:
 	seek_timer.wait_time = seek_timer_waittime
 	rest_timer.wait_time = rest_timer_waittime
 
-	_set_lights_energy(light_calm_energy)
+	if eyes_sprite:
+		_eyes_base_scale = eyes_sprite.scale
+	_pulse_step(0.0)  # покой: свет calm, глаза в базовом масштабе
 
-func _set_lights_energy(e: float) -> void:
+func _pulse_step(t: float) -> void:
+	var e := lerpf(light_calm_energy, light_pulse_energy, t)
 	for l in watch_lights:
 		if l:
 			l.energy = e
+	if eyes_sprite:
+		eyes_sprite.scale = _eyes_base_scale.lerp(_eyes_base_scale * eyes_pulse_scale, t)
 	
 
 func setup(room_array : Array[Room]):
@@ -73,18 +84,16 @@ func disable() -> void:
 
 
 func _start_pulse() -> void:
-	if watch_lights.is_empty():
+	if watch_lights.is_empty() and eyes_sprite == null:
 		return
 	if _pulse_tween:
 		_pulse_tween.kill()
 	_pulse_tween = create_tween().set_loops()
-	_pulse_tween.tween_method(_set_lights_energy, light_calm_energy, light_pulse_energy, pulse_time)\
-	.set_trans(Tween.TRANS_SINE)
-	_pulse_tween.tween_method(_set_lights_energy, light_pulse_energy, light_calm_energy, pulse_time)\
-	.set_trans(Tween.TRANS_SINE)
+	_pulse_tween.tween_method(_pulse_step, 0.0, 1.0, pulse_time).set_trans(Tween.TRANS_SINE)
+	_pulse_tween.tween_method(_pulse_step, 1.0, 0.0, pulse_time).set_trans(Tween.TRANS_SINE)
 
 
 func _stop_pulse() -> void:
 	if _pulse_tween:
 		_pulse_tween.kill()
-	_set_lights_energy(light_calm_energy)
+	_pulse_step(0.0)

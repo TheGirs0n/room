@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://qntydfy7jj4p" path="res://Assets/Scripts/Cat/Cat.gd" id="1_hipmd"]
 [ext_resource type="Script" uid="uid://dfvn4hm1odxkc" path="res://Assets/Scripts/Cat/CatSeekEyeComponent.gd" id="2_6sapc"]
 [ext_resource type="Script" uid="uid://icv2qargtdit" path="res://Assets/Scripts/Cat/CatPutPawComponent.gd" id="3_eog7f"]
+[ext_resource type="Texture2D" uid="uid://bttfp3xqy6jdt" path="res://Assets/Sprites/evil-eyes (1).svg" id="3_gxear"]
 [ext_resource type="Texture2D" uid="uid://dpim6lvikspa3" path="res://Assets/Sprites/paw-print (1).svg" id="6_wjnjr"]
 
 [sub_resource type="Gradient" id="Gradient_2qmas"]
@@ -25,6 +26,12 @@ script = ExtResource("1_hipmd")
 cat_seek_eye_component = NodePath("CatSeekEyeComponent")
 cat_put_paw_component = NodePath("CatPutPawComponent")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1643947641]
+modulate = Color(0.16862746, 0.16862746, 0.22745098, 1)
+position = Vector2(122.85715, -102.85714)
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("3_gxear")
+
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1602589397]
 position = Vector2(68.571434, -100.000015)
 scale = Vector2(0.3, 0.3)
@@ -39,13 +46,17 @@ color = Color(1, 0.88235295, 0.3019608, 1)
 energy = 1.5
 texture = SubResource("GradientTexture2D_gxear")
 
-[node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer", "watch_lights")]
+[node name="CatSeekEyeComponent" type="Node" parent="." unique_id=703648256 node_paths=PackedStringArray("seek_timer", "rest_timer", "watch_lights", "eyes_sprite")]
 script = ExtResource("2_6sapc")
 seek_timer = NodePath("SeekTimer")
 seek_timer_waittime = 2.0
 rest_timer = NodePath("RestTimer")
 rest_timer_waittime = 4.0
 watch_lights = [NodePath("../PointLight2D"), NodePath("../PointLight2D2")]
+light_calm_energy = 0.0
+light_pulse_energy = 5.0
+eyes_sprite = NodePath("../Sprite2D")
+eyes_pulse_scale = 1.4
 
 [node name="SeekTimer" type="Timer" parent="CatSeekEyeComponent" unique_id=151681504]
 one_shot = true
