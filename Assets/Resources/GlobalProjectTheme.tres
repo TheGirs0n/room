@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://cqlckpgvg58uk"]
 
-[ext_resource type="FontFile" uid="uid://b8w0d3ihueg62" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-Medium.ttf" id="1_41bgo"]
-[ext_resource type="FontFile" uid="uid://b0qa7oekteg1v" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Bold.ttf" id="2_47di2"]
-[ext_resource type="FontFile" uid="uid://cuhs2syxtoxqe" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Regular.ttf" id="2_fjnqa"]
-[ext_resource type="FontFile" uid="uid://bwhu1uehhu1ud" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-SemiBold.ttf" id="3_fjnqa"]
+[ext_resource type="FontFile" uid="uid://b8w0d3ihueg62" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-Medium.ttf" id="1_3bl5n"]
+[ext_resource type="FontFile" uid="uid://b0qa7oekteg1v" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Bold.ttf" id="2_flwy2"]
+[ext_resource type="FontFile" uid="uid://cuhs2syxtoxqe" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Regular.ttf" id="3_kgb0w"]
+[ext_resource type="FontFile" uid="uid://bwhu1uehhu1ud" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-SemiBold.ttf" id="4_rcf16"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu30i"]
 content_margin_left = 16.0
@@ -62,21 +62,21 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [resource]
-default_font = ExtResource("2_fjnqa")
+default_font = ExtResource("3_kgb0w")
 default_font_size = 20
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_41bgo")
+Button/fonts/font = ExtResource("1_3bl5n")
 Button/styles/focus = SubResource("StyleBoxFlat_bu30i")
 Button/styles/hover = SubResource("StyleBoxFlat_47di2")
 Button/styles/normal = SubResource("StyleBoxFlat_fjnqa")
 Button/styles/pressed = SubResource("StyleBoxFlat_efayx")
 CounterLabel/base_type = &"Label"
 CounterLabel/font_sizes/font_size = 30
-CounterLabel/fonts/font = ExtResource("2_47di2")
-Label/fonts/font = ExtResource("2_fjnqa")
+CounterLabel/fonts/font = ExtResource("2_flwy2")
+Label/fonts/font = ExtResource("3_kgb0w")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_41bgo")
 RichTextLabel/font_sizes/normal_font_size = 22
-RichTextLabel/fonts/normal_font = ExtResource("2_fjnqa")
+RichTextLabel/fonts/normal_font = ExtResource("3_kgb0w")
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 44
-TitleLabel/fonts/font = ExtResource("3_fjnqa")
+TitleLabel/fonts/font = ExtResource("4_rcf16")

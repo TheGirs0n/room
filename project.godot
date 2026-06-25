@@ -52,7 +52,7 @@ pickup={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Assets/Translation.en.translation", "res://Assets/Translation.ru.translation")
+locale/translations=PackedStringArray("res://Assets/Translation/Translation.en.translation", "res://Assets/Translation/Translation.ru.translation")
 
 [physics]
 
