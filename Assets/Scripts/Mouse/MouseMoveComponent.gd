@@ -1,7 +1,6 @@
 extends Node
 class_name MouseMoveComponent
 
-@export var facing_offset_deg : float = 0.0
 var current_room : Room
 
 var movement_tween : Tween
@@ -9,27 +8,46 @@ var mouse_main : MouseMain
 
 var mouse_is_moving : bool
 
+## Поправка ориентации: куда «смотрит» спрайт мыши (0 = вправо)
+@export var facing_offset_deg : float = 0.0
+
+## Сколько секунд есть, чтобы выбежать из-под взора кота
+@export var escape_grace : float = 0.7
+
+var _danger_pending : bool = false
+
 
 func _ready() -> void:
 	EventBus.room_spotted.connect(_on_room_spotted)
 
 
 func _on_room_spotted(room_id : int) -> void:
-	# кот засветил комнату, в которой мышь уже стоит
+	# кот засветил комнату, в которой мышь уже стоит — даём фору на побег
 	if not mouse_is_moving and current_room != null and room_id == current_room.room_id:
+		_start_danger()
+
+
+func _start_danger() -> void:
+	if _danger_pending:
+		return
+	_danger_pending = true
+	await get_tree().create_timer(escape_grace).timeout
+	_danger_pending = false
+	# ловят, только если мышь всё ещё стоит в просматриваемой комнате
+	if not mouse_is_moving and current_room != null and current_room.is_spot_by_cat:
 		EventBus.mouse_spotted_by_cat.emit()
 
 
 func setup(mouse : MouseMain):
 	mouse_main = mouse
 	mouse_is_moving = false
-	
-	
+
+
 func set_start_room(start_room : Room):
 	current_room = start_room
 	mouse_main.global_position = current_room.global_position
 	movement_tween_end()
-	
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.echo:
@@ -52,11 +70,9 @@ func move_another_room(next_room_id : int):
 
 	var target = current_room.get_linked_room_by_id(next_room_id)
 	if target == null:
-		# такой соседней комнаты нет
 		return
 
 	if current_room.is_block_by_cat and target.is_block_by_cat:
-		# комната заблокирована котом
 		EventBus.mouse_blocked_by_cat.emit()
 		return
 
@@ -82,7 +98,8 @@ func movement_tween_end() -> void:
 	EventBus.mouse_enter_new_room.emit(current_room.room_id)
 
 	if current_room.is_spot_by_cat:
-		EventBus.mouse_spotted_by_cat.emit()  
+		# вошёл в просматриваемую комнату — тоже есть фора, чтобы выскочить
+		_start_danger()
 
 	if current_room.is_escape_room:
 		mouse_main.mouse_pickup_component.mouse_deliver_cheese()
