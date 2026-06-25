@@ -18,8 +18,10 @@ room_id = 1
 room_linked_array = [NodePath("../Room2")]
 
 [node name="Cheese" parent="Room" unique_id=1578309279 instance=ExtResource("3_bxq5i")]
+position = Vector2(4.9999995, 27.999998)
 
 [node name="Cheese2" parent="Room" unique_id=127938439 instance=ExtResource("3_bxq5i")]
+position = Vector2(-5.9999995, -10.999999)
 
 [node name="Room2" parent="." unique_id=1226435697 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(364, 270)
@@ -27,7 +29,7 @@ room_id = 2
 room_linked_array = [NodePath("../Room"), NodePath("../Room3")]
 
 [node name="Cheese" parent="Room2" unique_id=663179565 instance=ExtResource("3_bxq5i")]
-position = Vector2(128.57143, 57.142857)
+position = Vector2(-15.9999695, 7.0000076)
 
 [node name="Room3" parent="." unique_id=3817860 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(592, 264)
@@ -37,7 +39,7 @@ room_linked_array = [NodePath("../Room2"), NodePath("../Room4")]
 [node name="Room4" parent="." unique_id=249234962 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(795, 263)
 room_id = 4
-room_linked_array = [NodePath(".")]
+room_linked_array = [NodePath("../Room5"), NodePath("../Room3")]
 
 [node name="Room5" parent="." unique_id=2047615386 node_paths=PackedStringArray("room_linked_array") instance=ExtResource("2_8s3ab")]
 position = Vector2(1017, 273)

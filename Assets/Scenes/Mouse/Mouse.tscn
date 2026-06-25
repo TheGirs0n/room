@@ -20,10 +20,9 @@ facing_offset_deg = -30.0
 
 [node name="MousePickupComponent" type="Node" parent="." unique_id=1921685706 node_paths=PackedStringArray("cheese_sprite")]
 script = ExtResource("3_rxdl7")
-cheese_sprite = NodePath("CheeseSprite")
+cheese_sprite = NodePath("../CheeseSprite")
 
-[node name="CheeseSprite" type="Sprite2D" parent="MousePickupComponent" unique_id=239265543]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -4)
-scale = Vector2(0.05, 0.05)
+[node name="CheeseSprite" type="Sprite2D" parent="." unique_id=239265543]
+modulate = Color(1, 0.827451, 0.3019608, 1)
+scale = Vector2(0.71428573, 0.71428573)
 texture = ExtResource("5_mox4p")

@@ -20,6 +20,6 @@ next_level = ExtResource("2_adwea")
 [node name="Mouse" parent="." unique_id=1253555285 instance=ExtResource("2_r32wg")]
 
 [node name="Cat" parent="." unique_id=316588685 instance=ExtResource("3_adwea")]
-position = Vector2(297.99997, 535.99994)
+position = Vector2(295, 570.00006)
 
 [node name="MainUi" parent="." unique_id=114915362 instance=ExtResource("5_68hk4")]
