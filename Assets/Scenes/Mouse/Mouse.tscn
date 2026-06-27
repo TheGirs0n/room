@@ -23,6 +23,6 @@ script = ExtResource("3_rxdl7")
 cheese_sprite = NodePath("../CheeseSprite")
 
 [node name="CheeseSprite" type="Sprite2D" parent="." unique_id=239265543]
-modulate = Color(1, 0.827451, 0.3019608, 1)
+modulate = Color(1, 0.827222, 0.30153242, 0)
 scale = Vector2(0.71428573, 0.71428573)
 texture = ExtResource("5_mox4p")

@@ -31,6 +31,10 @@ func _ready() -> void:
 func setup_level(level: LevelBase) -> void:
 	var rooms := level.get_rooms()
 
+	var links := RoomLinks.new()
+	level.add_child(links)
+	links.build(rooms)
+
 	mouse_main.setup_components()
 	mouse_main.mouse_move_component.set_start_room(level.base_room)
 	
