@@ -11,10 +11,10 @@ color_rect_spot = NodePath("ColorSpot")
 exit_marker = NodePath("Sprite2D")
 
 [node name="Label" type="Label" parent="." unique_id=560755868]
-offset_left = -17.0
-offset_top = 74.0
-offset_right = 23.0
-offset_bottom = 97.0
+offset_left = -72.0
+offset_top = 37.0
+offset_right = -32.0
+offset_bottom = 82.0
 size_flags_vertical = 1
 theme_type_variation = &"CounterLabel"
 theme_override_font_sizes/font_size = 32
