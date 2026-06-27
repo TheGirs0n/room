@@ -1,63 +1,81 @@
 [gd_scene format=3 uid="uid://y3amluwusk5p"]
 
-[ext_resource type="Script" uid="uid://spgcr61l76oc" path="res://Assets/Scripts/UI/IconMaker.gd" id="1_0vyls"]
-[ext_resource type="Texture2D" uid="uid://ducfgjjnh4o1t" path="res://Assets/Sprites/cheese-wedge (1).svg" id="2_aw0ub"]
-[ext_resource type="Texture2D" uid="uid://87ksh181sx1u" path="res://Assets/Sprites/mouse (1).svg" id="3_mju7f"]
+[ext_resource type="Texture2D" uid="uid://ducfgjjnh4o1t" path="res://Assets/Sprites/cheese-wedge (1).svg" id="1_cheese"]
+[ext_resource type="Texture2D" uid="uid://87ksh181sx1u" path="res://Assets/Sprites/mouse (1).svg" id="2_mouse"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mju7f"]
-bg_color = Color(0.16862746, 0.16862746, 0.22745098, 1)
+[sub_resource type="GDScript" id="IconScript"]
+script/source = "extends Node
+
+func _ready() -> void:
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
+	var img = $SubViewport.get_texture().get_image()
+	img.save_png(\"res://icon_512.png\")
+	print(\"Saved: res://icon_512.png\")
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxFlat" id="Plate_sb"]
+bg_color = Color(0.169, 0.169, 0.227, 1)
 corner_radius_top_left = 96
 corner_radius_top_right = 96
 corner_radius_bottom_right = 96
 corner_radius_bottom_left = 96
 
-[node name="Icon" type="Node" unique_id=1556607764]
-script = ExtResource("1_0vyls")
+[sub_resource type="CanvasItemMaterial" id="Add_mat"]
+blend_mode = 1
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=269487751]
+[sub_resource type="Gradient" id="Gradient_glow"]
+colors = PackedColorArray(1, 0.85, 0.35, 0.55, 1, 0.85, 0.35, 0)
+
+[sub_resource type="GradientTexture2D" id="Glow_tex"]
+gradient = SubResource("Gradient_glow")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="IconMaker" type="Node" unique_id=1341883770]
+script = SubResource("IconScript")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1118190136]
 transparent_bg = true
 render_target_update_mode = 4
 
-[node name="Panel" type="Panel" parent="SubViewport" unique_id=1958591420]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mju7f")
+[node name="Plate" type="Panel" parent="SubViewport" unique_id=1387334839]
+offset_right = 512.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("Plate_sb")
 
-[node name="TextureRect" type="TextureRect" parent="SubViewport" unique_id=242864286]
-modulate = Color(1, 0.827451, 0.3019608, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -160.0
-offset_right = 160.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.17453292
-texture = ExtResource("2_aw0ub")
-expand_mode = 1
-stretch_mode = 5
+[node name="Glow" type="Sprite2D" parent="SubViewport" unique_id=1495656866]
+material = SubResource("Add_mat")
+position = Vector2(256, 300)
+scale = Vector2(1.7, 1.7)
+texture = SubResource("Glow_tex")
 
-[node name="TextureRect2" type="TextureRect" parent="SubViewport" unique_id=1859441239]
-modulate = Color(0.6039216, 0.627451, 0.6509804, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -229.32
-offset_top = -240.815
-offset_right = 90.67999
-offset_bottom = 79.185
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.39, 0.39)
-texture = ExtResource("3_mju7f")
-expand_mode = 1
-stretch_mode = 5
+[node name="CheeseShadow" type="Sprite2D" parent="SubViewport" unique_id=1924570585]
+modulate = Color(0, 0, 0, 0.3)
+position = Vector2(262, 316)
+rotation = -0.139626
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_cheese")
+
+[node name="Cheese" type="Sprite2D" parent="SubViewport" unique_id=601446021]
+modulate = Color(1, 0.827451, 0.301961, 1)
+position = Vector2(256, 300)
+rotation = -0.139626
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_cheese")
+
+[node name="MouseShadow" type="Sprite2D" parent="SubViewport" unique_id=1683623704]
+modulate = Color(0, 0, 0, 0.25)
+position = Vector2(126, 106)
+scale = Vector2(-0.21, 0.21)
+texture = ExtResource("2_mouse")
+
+[node name="Mouse" type="Sprite2D" parent="SubViewport" unique_id=647940236]
+modulate = Color(0.603922, 0.627451, 0.65098, 1)
+position = Vector2(120, 98)
+scale = Vector2(-0.21, 0.21)
+texture = ExtResource("2_mouse")
