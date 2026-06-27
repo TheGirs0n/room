@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Rat in the Room"
-config/tags=PackedStringArray("active")
+config/name="Mouse in the Room"
+config/tags=PackedStringArray("done")
 run/main_scene="uid://bicasqmd5o13m"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://0tnf4rwdq8gc"
