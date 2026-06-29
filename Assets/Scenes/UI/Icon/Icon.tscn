@@ -1,32 +1,31 @@
-[gd_scene format=3 uid="uid://y3amluwusk5p"]
+[gd_scene format=3 uid="uid://di6td4h327dbm"]
 
 [ext_resource type="Texture2D" uid="uid://ducfgjjnh4o1t" path="res://Assets/Sprites/cheese-wedge (1).svg" id="1_cheese"]
 [ext_resource type="Texture2D" uid="uid://87ksh181sx1u" path="res://Assets/Sprites/mouse (1).svg" id="2_mouse"]
+[ext_resource type="Texture2D" uid="uid://bttfp3xqy6jdt" path="res://Assets/Sprites/evil-eyes (1).svg" id="3_eyes"]
+[ext_resource type="FontFile" uid="uid://bwhu1uehhu1ud" path="res://Assets/Fonts/Fredoka,Nunito/Fredoka/Fredoka-SemiBold.ttf" id="4_font"]
+[ext_resource type="FontFile" uid="uid://cuhs2syxtoxqe" path="res://Assets/Fonts/Fredoka,Nunito/Nunito/Nunito-Regular.ttf" id="5_sub"]
 
-[sub_resource type="GDScript" id="IconScript"]
+[sub_resource type="GDScript" id="BannerScript"]
 script/source = "extends Node
 
 func _ready() -> void:
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	var img = $SubViewport.get_texture().get_image()
-	img.save_png(\"res://icon_512.png\")
-	print(\"Saved: res://icon_512.png\")
+	img.save_png(\"res://banner_1280x460.png\")
+	print(\"Saved: res://banner_1280x460.png\")
 	get_tree().quit()
 "
 
 [sub_resource type="StyleBoxFlat" id="Plate_sb"]
-bg_color = Color(0.169, 0.169, 0.227, 1)
-corner_radius_top_left = 96
-corner_radius_top_right = 96
-corner_radius_bottom_right = 96
-corner_radius_bottom_left = 96
+bg_color = Color(0.106, 0.114, 0.149, 1)
 
 [sub_resource type="CanvasItemMaterial" id="Add_mat"]
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_glow"]
-colors = PackedColorArray(1, 0.85, 0.35, 0.55, 1, 0.85, 0.35, 0)
+colors = PackedColorArray(1, 0.85, 0.35, 0.5, 1, 0.85, 0.35, 0)
 
 [sub_resource type="GradientTexture2D" id="Glow_tex"]
 gradient = SubResource("Gradient_glow")
@@ -36,46 +35,80 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[node name="IconMaker" type="Node" unique_id=1341883770]
-script = SubResource("IconScript")
+[node name="BannerMaker" type="Node" unique_id=1419586442]
+script = SubResource("BannerScript")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1118190136]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2038157533]
 transparent_bg = true
+size = Vector2i(1280, 460)
 render_target_update_mode = 4
 
-[node name="Plate" type="Panel" parent="SubViewport" unique_id=1387334839]
-offset_right = 512.0
-offset_bottom = 512.0
+[node name="Plate" type="Panel" parent="SubViewport" unique_id=431702765]
+offset_right = 1280.0
+offset_bottom = 460.0
 theme_override_styles/panel = SubResource("Plate_sb")
 
-[node name="Glow" type="Sprite2D" parent="SubViewport" unique_id=1495656866]
+[node name="Glow" type="Sprite2D" parent="SubViewport" unique_id=1957163550]
 material = SubResource("Add_mat")
-position = Vector2(256, 300)
-scale = Vector2(1.7, 1.7)
+position = Vector2(950, 250)
+scale = Vector2(2.7, 2.7)
 texture = SubResource("Glow_tex")
 
-[node name="CheeseShadow" type="Sprite2D" parent="SubViewport" unique_id=1924570585]
+[node name="Eyes" type="Sprite2D" parent="SubViewport" unique_id=2018327413]
+modulate = Color(1, 0.882, 0.302, 1)
+position = Vector2(950, 70)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_eyes")
+
+[node name="CheeseShadow" type="Sprite2D" parent="SubViewport" unique_id=979732388]
 modulate = Color(0, 0, 0, 0.3)
-position = Vector2(262, 316)
+position = Vector2(966, 268)
 rotation = -0.139626
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.62, 0.62)
 texture = ExtResource("1_cheese")
 
-[node name="Cheese" type="Sprite2D" parent="SubViewport" unique_id=601446021]
+[node name="Cheese" type="Sprite2D" parent="SubViewport" unique_id=899068204]
 modulate = Color(1, 0.827451, 0.301961, 1)
-position = Vector2(256, 300)
+position = Vector2(958, 252)
 rotation = -0.139626
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.62, 0.62)
 texture = ExtResource("1_cheese")
 
-[node name="MouseShadow" type="Sprite2D" parent="SubViewport" unique_id=1683623704]
+[node name="MouseShadow" type="Sprite2D" parent="SubViewport" unique_id=1827273043]
 modulate = Color(0, 0, 0, 0.25)
-position = Vector2(126, 106)
-scale = Vector2(-0.21, 0.21)
+position = Vector2(786, 340)
+scale = Vector2(-0.24, 0.24)
 texture = ExtResource("2_mouse")
 
-[node name="Mouse" type="Sprite2D" parent="SubViewport" unique_id=647940236]
+[node name="Mouse" type="Sprite2D" parent="SubViewport" unique_id=1605286693]
 modulate = Color(0.603922, 0.627451, 0.65098, 1)
-position = Vector2(120, 98)
-scale = Vector2(-0.21, 0.21)
+position = Vector2(780, 332)
+scale = Vector2(-0.24, 0.24)
 texture = ExtResource("2_mouse")
+
+[node name="Title" type="Label" parent="SubViewport" unique_id=949785968]
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 740.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(1, 0.929412, 0.784314, 1)
+theme_override_colors/font_outline_color = Color(0.07, 0.07, 0.1, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 84
+text = "Mouse in the Room"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Subtitle" type="Label" parent="SubViewport" unique_id=1678145998]
+offset_left = 60.0
+offset_top = 350.0
+offset_right = 740.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(1, 0.827451, 0.301961, 1)
+theme_override_fonts/font = ExtResource("5_sub")
+theme_override_font_sizes/font_size = 30
+text = "Sneak - Grab the cheese - Don't get caught"
+horizontal_alignment = 1
+vertical_alignment = 1
